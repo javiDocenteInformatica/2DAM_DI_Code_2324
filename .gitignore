@@ -1,1 +1,68 @@
-*desktop.ini*
+# Directorios y archivos generados por el sistema de compilación
+bin/
+target/
+
+# Directorio de salida de Eclipse
+.settings/
+
+# Directorio de salida de IntelliJ IDEA
+.idea/
+
+# Archivos generados por Maven
+log/
+target/
+
+# Archivos de configuración específicos de IDE
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# Archivos de configuración de NetBeans
+nb-configuration.xml
+
+# Dependencias de Maven
+# No ignore los archivos pom.xml
+!.mvn/wrapper/maven-wrapper.jar
+
+# Eclipse
+.classpath
+.project
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbactions.xml
+
+# IntelliJ IDEA
+.idea/
+
+# Logs
+*.log
+
+# Archivos de configuración de Gradle
+.gradle/
+
+# Archivos generados por Visual Studio Code
+.vscode/
+
+# JARs y archivos de clase generados
+*.jar
+*.class
+
+# Archivos de configuración de Windows
+Thumbs.db
+ehthumbs.db
+
+# Archivos de respaldo de Windows
+*~
+
+# Archivos de respaldo de MacOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Carpetas y archivos específicos de proyectos
+# (Agrega cualquier carpeta o archivo específico de tu proyecto aquí)
+*desktop.ini
