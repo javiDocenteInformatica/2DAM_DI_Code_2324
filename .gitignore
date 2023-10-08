@@ -65,4 +65,4 @@ ehthumbs.db
 
 # Carpetas y archivos específicos de proyectos
 # (Agrega cualquier carpeta o archivo específico de tu proyecto aquí)
-*desktop.ini
+**/desktop.ini
