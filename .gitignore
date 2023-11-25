@@ -1,69 +1,82 @@
-# Directorios y archivos generados por el sistema de compilación
-bin/
-target/
-
-# Directorio de salida de Eclipse
-.settings/
-
-# Directorio de salida de IntelliJ IDEA
-.idea/
-
-# Archivos generados por Maven
-log/
-target/
-
-# Archivos de configuración específicos de IDE
-*.iml
-*.ipr
-*.iws
-.idea/
-
-# Archivos de configuración de NetBeans
-nb-configuration.xml
-
-# Dependencias de Maven
-# No ignore los archivos pom.xml
-!.mvn/wrapper/maven-wrapper.jar
-
 # Eclipse
 .classpath
 .project
+.settings/
 
-# NetBeans
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbactions.xml
-
-# IntelliJ IDEA
-.idea/
-
-# Logs
-*.log
-
-# Archivos de configuración de Gradle
-.gradle/
-
-# Archivos generados por Visual Studio Code
-.vscode/
-
-# JARs y archivos de clase generados
-*.jar
+# JDT-specific (Eclipse Java Development Tools)
 *.class
 
-# Archivos de configuración de Windows
+# Gradle
+.gradle/
+build/
+
+# Maven
+target/
+
+# Logs y archivos de salida
+*.log
+*.swp
+*.bak
+*.tmp
+
+# Carpetas específicas de Eclipse para plugins
+.metadata/
+bin/
+tmp/
+
+# Carpetas específicas de Eclipse para el servidor Tomcat
+work/
+catalina/
+
+# Carpetas específicas de Eclipse para el servidor JBoss
+data/
+log/
+
+# Carpetas específicas de Eclipse para el servidor Wildfly
+standalone/data/
+standalone/log/
+standalone/tmp/
+standalone/deployments/
+
+# Carpetas específicas de Eclipse para el servidor GlassFish
+domains/domain1/generated/
+
+# Carpetas específicas de Eclipse para el servidor WebSphere
+.wst/
+.metadata/
+
+# Eclipse Che
+.che/
+
+# Carpetas de respaldo y archivos temporales
+*~
+.DS_Store
 Thumbs.db
 ehthumbs.db
 
-# Archivos de respaldo de Windows
-*~
+# Eclipse Neon (4.6) specific
+.metadata/
+Recommenders/
 
-# Archivos de respaldo de MacOS
-.DS_Store
-.AppleDouble
-.LSOverride
+# Eclipse Oxygen (4.7) specific
+.target/
+.cache/
+org.eclipse.recommenders.model/
+*.mpc
+
+# Eclipse Photon (4.8) specific
+.vscode/
+.mvn/
+.tmproj
+.settings/org.eclipse.wst.common.component
+.settings/org.eclipse.wst.common.project.facet.core.xml
+.settings/org.eclipse.wst.jsdt.ui.superType.container
+.settings/org.eclipse.wst.jsdt.ui.superType.name
+
+# Eclipse IDE specific (all versions)
+.history/
+.metadata/
 
 # Carpetas y archivos específicos de proyectos
 # (Agrega cualquier carpeta o archivo específico de tu proyecto aquí)
 **/desktop.ini
-**/.metadata
