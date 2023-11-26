@@ -88,6 +88,11 @@ public class PopupMenuDemo {
 		// Display the window.
 		frame.setSize(600, 300);
 		frame.setVisible(true);
+
+		// Añade un WindowListener personalizado (PopupMenuEventsManager) al JFrame
+		// (frame).
+		frame.addWindowListener(new PopupMenuEventsManager(frame));
+
 	}
 
 	public JMenuBar createMenuBar() {
