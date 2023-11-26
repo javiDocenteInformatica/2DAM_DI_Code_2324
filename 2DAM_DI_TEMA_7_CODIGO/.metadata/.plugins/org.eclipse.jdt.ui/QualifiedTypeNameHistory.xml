@@ -1,2 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.awt.EventQueue"/>
+    <fullyQualifiedTypeName name="vista.PopupMenuDemo"/>
+    <fullyQualifiedTypeName name="controlador.PopupMenuEventsManager"/>
+    <fullyQualifiedTypeName name="utiles.Utiles"/>
+    <fullyQualifiedTypeName name="controlador.PopupMenuItemListener"/>
+    <fullyQualifiedTypeName name="controlador.PopupMenuActionListener"/>
+    <fullyQualifiedTypeName name="controlador.PopupMouseAdapter"/>
+</qualifiedTypeNameHistroy>

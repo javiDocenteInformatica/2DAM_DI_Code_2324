@@ -11,11 +11,11 @@ import javax.swing.JTextArea;
 
 import utiles.Utiles;
 
-public class PopupMenuActionListener implements ActionListener {
+public class PopupMenuEventsManager implements ActionListener {
 
 	private JTextArea output;
 	
-	public PopupMenuActionListener(JTextArea output) {
+	public PopupMenuEventsManager(JTextArea output) {
 		this.output = output;
 		
 	}
@@ -23,11 +23,11 @@ public class PopupMenuActionListener implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-        JMenuItem source = (JMenuItem)(e.getSource());
+        JMenuItem menuItem = (JMenuItem)(e.getSource());
         String s = "Action event detected."
                    + Utiles.NEW_LINE
-                   + "    Event source: " + source.getText()
-                   + " (an instance of " + Utiles.getClassName(source) + ")";
+                   + "    Event source: " + menuItem.getText()
+                   + " (an instance of " + Utiles.getClassName(menuItem) + ")";
         output.append(s + Utiles.NEW_LINE);
         output.setCaretPosition(output.getDocument().getLength());
     }

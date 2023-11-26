@@ -27,7 +27,7 @@
  * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */ 
+ */
 
 package vista;
 
@@ -41,10 +41,11 @@ import javax.swing.JRadioButtonMenuItem;
 import javax.swing.ButtonGroup;
 import javax.swing.JMenuBar;
 import javax.swing.KeyStroke;
+import javax.swing.UIManager;
 
-import controlador.PopupMenuActionListener;
-import controlador.PopupMenuItemListener;
-import controlador.PopupMouseAdapter;
+import controlador.PopupMenuEventsManager;
+import controlador.PopupMenuItemEventsManager;
+import controlador.PopupMenuContextEventsManager;
 import utiles.Utiles;
 
 import javax.swing.ImageIcon;
@@ -60,168 +61,234 @@ import javax.swing.JFrame;
  * Like MenuDemo, but with popup menus added.
  */
 public class PopupMenuDemo {
-    private JTextArea output;
-    private JScrollPane scrollPane;
-    
-    
-    /**
-     * Create the GUI and show it.  For thread safety,
-     * this method should be invoked from the
-     * event-dispatching thread.
-     */
-    public static void createAndShowGUI() {
-        //Create and set up the window.
-        JFrame frame = new JFrame("PopupMenuDemo");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	private JTextArea output;
+	private JScrollPane scrollPane;
 
-        //Create/set menu bar and content pane.
-        PopupMenuDemo demo = new PopupMenuDemo();
-        frame.setContentPane(demo.createContentPane());
-        frame.setJMenuBar(demo.createMenuBar());
-        
+	public PopupMenuDemo() {
 
-        //Create and set up the popup menu.
-        demo.createPopupMenu();
+	}
 
-        //Display the window.
-        frame.setSize(450, 260);
-        frame.setVisible(true);
-    }
+	/**
+	 * Create the GUI and show it. For thread safety, this method should be invoked
+	 * from the event-dispatching thread.
+	 */
+	public static void createAndShowGUI() {
+		// Create and set up the window.
+		JFrame frame = new JFrame("PopupMenuDemo");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-    public JMenuBar createMenuBar() {
-        JMenuBar menuBar;
-        JMenu menu, submenu;
-        JMenuItem menuItem;
-        JRadioButtonMenuItem rbMenuItem;
-        JCheckBoxMenuItem cbMenuItem;
+		// Create/set menu bar and content pane.
+		PopupMenuDemo menuDemo = new PopupMenuDemo();
+		frame.setContentPane(menuDemo.createContentPane());
+		frame.setJMenuBar(menuDemo.createMenuBar());
 
-        //Create the menu bar.
-        menuBar = new JMenuBar();
+		// Create and set up the popup menu.
+		menuDemo.createPopupMenu();
 
-        //Build the first menu.
-        menu = new JMenu("A Menu");
-        menu.setMnemonic(KeyEvent.VK_A);
-        menu.getAccessibleContext().setAccessibleDescription(
-                "The only menu in this program that has menu items");
-        menuBar.add(menu);
+		// Display the window.
+		frame.setSize(600, 300);
+		frame.setVisible(true);
+	}
 
-        //a group of JMenuItems
-        menuItem = new JMenuItem("A text-only menu item",
-                                 KeyEvent.VK_T);
-        //menuItem.setMnemonic(KeyEvent.VK_T); //used constructor instead
-        menuItem.setAccelerator(KeyStroke.getKeyStroke(
-                KeyEvent.VK_1, ActionEvent.ALT_MASK));
-        menuItem.getAccessibleContext().setAccessibleDescription(
-                "This doesn't really do anything");
-        menuItem.addActionListener(new PopupMenuActionListener(output));
-        menu.add(menuItem);
+	public JMenuBar createMenuBar() {
+		JMenuBar menuBar;
+		JMenu menu1, menu2, submenu;
+		JMenuItem menuItem1, menuItem2, menuItem3, menuItem4, menuItem5;
+		JRadioButtonMenuItem rbMenuItem1, rbMenuItem2;
+		JCheckBoxMenuItem cbMenuItem1, cbMenuItem2;
 
-        ImageIcon icon = Utiles.createImageIcon("../assets/middle.gif");
-        menuItem = new JMenuItem("Both text and icon", icon);
-        menuItem.setMnemonic(KeyEvent.VK_B);
-        menuItem.addActionListener(new PopupMenuActionListener(output));
-        menu.add(menuItem);
+		// Create the menu bar.
+		menuBar = new JMenuBar();
 
-        menuItem = new JMenuItem(icon);
-        menuItem.setMnemonic(KeyEvent.VK_D);
-        menuItem.addActionListener(new PopupMenuActionListener(output));
-        menu.add(menuItem);
+		// Build the first menu.
+		menu1 = new JMenu("A Menu");
+		menu1.setMnemonic(KeyEvent.VK_A);
+		menu1.getAccessibleContext().setAccessibleDescription("The only menu in this program that has menu items");
+		menuBar.add(menu1);
 
-        //a group of radio button menu items
-        menu.addSeparator();
-        ButtonGroup group = new ButtonGroup();
+		// a group of JMenuItems
+		menuItem1 = new JMenuItem("A text-only menu item", KeyEvent.VK_T);
+		// menuItem.setMnemonic(KeyEvent.VK_T); //used constructor instead
+		menuItem1.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, ActionEvent.ALT_MASK));
+		menuItem1.getAccessibleContext().setAccessibleDescription("This doesn't really do anything");
+		menuItem1.addActionListener(new PopupMenuEventsManager(output));
+		menu1.add(menuItem1);
 
-        rbMenuItem = new JRadioButtonMenuItem("A radio button menu item");
-        rbMenuItem.setSelected(true);
-        rbMenuItem.setMnemonic(KeyEvent.VK_R);
-        group.add(rbMenuItem);
-        rbMenuItem.addActionListener(new PopupMenuActionListener(output));
-        menu.add(rbMenuItem);
+		ImageIcon icon = Utiles.createImageIcon("../assets/middle.gif");
+		menuItem2 = new JMenuItem("Both text and icon", icon);
+		menuItem2.setMnemonic(KeyEvent.VK_B);
+		menuItem2.addActionListener(new PopupMenuEventsManager(output));
+		menu1.add(menuItem2);
 
-        rbMenuItem = new JRadioButtonMenuItem("Another one");
-        rbMenuItem.setMnemonic(KeyEvent.VK_O);
-        group.add(rbMenuItem);
-        rbMenuItem.addActionListener(new PopupMenuActionListener(output));
-        menu.add(rbMenuItem);
+		menuItem3 = new JMenuItem(icon);
+		menuItem3.setMnemonic(KeyEvent.VK_D);
+		menuItem3.addActionListener(new PopupMenuEventsManager(output));
+		menu1.add(menuItem3);
 
-        //a group of check box menu items
-        menu.addSeparator();
-        cbMenuItem = new JCheckBoxMenuItem("A check box menu item");
-        cbMenuItem.setMnemonic(KeyEvent.VK_C);
-        cbMenuItem.addItemListener(new PopupMenuItemListener(output));
-        menu.add(cbMenuItem);
+		// a group of radio button menu items
+		menu1.addSeparator();
+		ButtonGroup group = new ButtonGroup();
 
-        cbMenuItem = new JCheckBoxMenuItem("Another one");
-        cbMenuItem.setMnemonic(KeyEvent.VK_H);
-        cbMenuItem.addItemListener(new PopupMenuItemListener(output));
-        menu.add(cbMenuItem);
+		rbMenuItem1 = new JRadioButtonMenuItem("A radio button menu item");
+		rbMenuItem1.setSelected(true);
+		rbMenuItem1.setMnemonic(KeyEvent.VK_R);
+		group.add(rbMenuItem1);
+		rbMenuItem1.addActionListener(new PopupMenuEventsManager(output));
+		menu1.add(rbMenuItem1);
 
-        //a submenu
-        menu.addSeparator();
-        submenu = new JMenu("A submenu");
-        submenu.setMnemonic(KeyEvent.VK_S);
+		rbMenuItem2 = new JRadioButtonMenuItem("Another one");
+		rbMenuItem2.setMnemonic(KeyEvent.VK_O);
+		group.add(rbMenuItem2);
+		rbMenuItem2.addActionListener(new PopupMenuEventsManager(output));
+		menu1.add(rbMenuItem2);
 
-        menuItem = new JMenuItem("An item in the submenu");
-        menuItem.setAccelerator(KeyStroke.getKeyStroke(
-                KeyEvent.VK_2, ActionEvent.ALT_MASK));
-        menuItem.addActionListener(new PopupMenuActionListener(output));
-        submenu.add(menuItem);
+		// a group of check box menu items
+		menu1.addSeparator();
+		cbMenuItem1 = new JCheckBoxMenuItem("A check box menu item");
+		cbMenuItem1.setMnemonic(KeyEvent.VK_C);
+		cbMenuItem1.addItemListener(new PopupMenuItemEventsManager(output));
+		menu1.add(cbMenuItem1);
 
-        menuItem = new JMenuItem("Another item");
-        menuItem.addActionListener(new PopupMenuActionListener(output));
-        submenu.add(menuItem);
-        menu.add(submenu);
+		cbMenuItem2 = new JCheckBoxMenuItem("Another one");
+		cbMenuItem2.setMnemonic(KeyEvent.VK_H);
+		cbMenuItem2.addItemListener(new PopupMenuItemEventsManager(output));
+		menu1.add(cbMenuItem2);
 
-        //Build second menu in the menu bar.
-        menu = new JMenu("Another Menu");
-        menu.setMnemonic(KeyEvent.VK_N);
-        menu.getAccessibleContext().setAccessibleDescription(
-                "This menu does nothing");
-        menuBar.add(menu);
+		// a submenu
+		menu1.addSeparator();
+		submenu = new JMenu("A submenu");
+		submenu.setMnemonic(KeyEvent.VK_S);
 
-        return menuBar;
-    }
+		menuItem4 = new JMenuItem("An item in the submenu");
+		menuItem4.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_2, ActionEvent.ALT_MASK));
+		menuItem4.addActionListener(new PopupMenuEventsManager(output));
+		submenu.add(menuItem4);
 
-    public Container createContentPane() {
-        //Create the content-pane-to-be.
-        JPanel contentPane = new JPanel(new BorderLayout());
-        contentPane.setOpaque(true);
+		menuItem5 = new JMenuItem("Another item");
+		menuItem5.addActionListener(new PopupMenuEventsManager(output));
+		submenu.add(menuItem5);
+		menu1.add(submenu);
 
-        //Create a scrolled text area.
-        output = new JTextArea(5, 30);
-        output.setEditable(false);
-        scrollPane = new JScrollPane(output);
+		// Build second menu in the menu bar.
+		menu2 = new JMenu("Another Menu");
+		menu2.setMnemonic(KeyEvent.VK_N);
+		menu2.getAccessibleContext().setAccessibleDescription("This menu does nothing");
+		menuBar.add(menu2);
 
-        //Add the text area to the content pane.
-        contentPane.add(scrollPane, BorderLayout.CENTER);
+		/**
+		 * FUENTES
+		 */
 
-        return contentPane;
-    }
+		menu1.setFont(Utiles.cargaFuentes(Utiles.POPPINS_BOLD, 16));
+		menu2.setFont(Utiles.cargaFuentes(Utiles.POPPINS_BOLD_ITALIC, 16));
+		submenu.setFont(Utiles.cargaFuentes(Utiles.POPPINS_REGULAR, 14));
 
-    public void createPopupMenu() {
-        JMenuItem menuItem;
+		menuItem1.setFont(Utiles.cargaFuentes(Utiles.ROBOTO_BLACK, 12));
+		menuItem2.setFont(Utiles.cargaFuentes(Utiles.ROBOTO_BLACK_ITALIC, 12));
+		menuItem3.setFont(Utiles.cargaFuentes(Utiles.ROBOTO_BOLD, 12));
+		menuItem4.setFont(Utiles.cargaFuentes(Utiles.RALEWAY_BOLD, 12));
+		menuItem5.setFont(Utiles.cargaFuentes(Utiles.RALEWAY_BOLD_ITALIC, 12));
 
-        //Create the popup menu.
-        JPopupMenu popup = new JPopupMenu();
-        menuItem = new JMenuItem("A popup menu item");
-        menuItem.addActionListener(new PopupMenuActionListener(output));
-        popup.add(menuItem);
-        menuItem = new JMenuItem("Another popup menu item");
-        menuItem.addActionListener(new PopupMenuActionListener(output));
-        popup.add(menuItem);
+		rbMenuItem1.setFont(Utiles.cargaFuentes(Utiles.RALEWAY_MEDIUM, 10));
+		rbMenuItem2.setFont(Utiles.cargaFuentes(Utiles.ROBOTO_BLACK_ITALIC, 10));
 
-        //Add listener to the text area so the popup menu can come up.
-        MouseListener popupListener = new PopupMouseAdapter(popup);
-        output.addMouseListener(popupListener);
-    }
+		cbMenuItem1.setFont(Utiles.cargaFuentes(Utiles.POPPINS_BOLD_ITALIC, 10));
+		cbMenuItem2.setFont(Utiles.cargaFuentes(Utiles.RALEWAY_BOLD_ITALIC, 10));
+//        cbMenuItem3.setFont(Utiles.cargaFuentes(Utiles.ROBOTO_BLACK, 10));
+//        cbMenuItem4.setFont(Utiles.cargaFuentes(Utiles.POPPINS_REGULAR, 10));
 
-    
+		output.setFont(Utiles.cargaFuentes(Utiles.POPPINS_BOLD_ITALIC, 15));
 
-    
+		/**
+		 * COLORES
+		 */
 
-    
+		// Establece la propiedad opaca como verdadera para que el color de fondo sea
+		// visible
+		menu1.setOpaque(true);
+		menu2.setOpaque(true);
+		submenu.setOpaque(true);
 
-        
+		// Establece el color de fondo y el color de primer plano del primer menú
+		menu1.setBackground(Utiles.convierteRGBdeHEX("C25E5E")); // Color de fondo rojo oscuro
+		menu1.setForeground(Color.WHITE); // Color de primer plano blanco
 
-    
+		// Establece el color de fondo y el color de primer plano del segundo menú
+		menu2.setBackground(Utiles.convierteRGBdeHEX("574240")); // Color de fondo marrón oscuro
+		menu2.setForeground(Color.WHITE); // Color de primer plano blanco
+
+		// Establece el color de fondo y el color de primer plano del submenú
+		submenu.setBackground(Utiles.convierteRGBdeHEX("005983")); // Color de fondo azul oscuro
+		submenu.setForeground(Color.WHITE); // Color de primer plano blanco
+
+		// Establece el color de fondo y el color de primer plano del área de salida
+		// (JTextArea)
+		output.setBackground(Utiles.convierteRGBdeHEX("BFA5A4")); // Color de fondo beige claro
+		output.setForeground(Color.WHITE); // Color de primer plano blanco
+
+		return menuBar;
+	}
+
+	public Container createContentPane() {
+		// Create the content-pane-to-be.
+		JPanel contentPane = new JPanel(new BorderLayout());
+		contentPane.setOpaque(true);
+
+		// Create a scrolled text area.
+		output = new JTextArea(5, 30);
+		output.setEditable(false);
+		scrollPane = new JScrollPane(output);
+
+		// Add the text area to the content pane.
+		contentPane.add(scrollPane, BorderLayout.CENTER);
+
+		return contentPane;
+	}
+
+	public void createPopupMenu() {
+		JMenuItem menuItem1, menuItem2;
+
+		// Create the popup menu.
+		JPopupMenu popup = new JPopupMenu();
+		menuItem1 = new JMenuItem("A popup menu item");
+		menuItem1.addActionListener(new PopupMenuEventsManager(output));
+		popup.add(menuItem1);
+		menuItem2 = new JMenuItem("Another popup menu item");
+		menuItem2.addActionListener(new PopupMenuEventsManager(output));
+		popup.add(menuItem2);
+
+		// Add listener to the text area so the popup menu can come up.
+		MouseListener popupListener = new PopupMenuContextEventsManager(popup);
+		output.addMouseListener(popupListener);
+
+		/**
+		 * FUENTES
+		 */
+		// Configurar la fuente para menuItem1 utilizando la fuente RALEWAY_MEDIUM con
+		// tamaño 14
+		menuItem1.setFont(Utiles.cargaFuentes(Utiles.RALEWAY_MEDIUM, 14));
+
+		// Configurar la fuente para menuItem2 utilizando la fuente POPPINS_BOLD_ITALIC
+		// con tamaño 15
+		menuItem2.setFont(Utiles.cargaFuentes(Utiles.POPPINS_BOLD_ITALIC, 15));
+
+		/**
+		 * COLORES
+		 * 
+		 * Cambiar el color de fondo y letra de los JMenuItems del POPUP no funciona
+		 * 
+		 */
+		// Establecer la opacidad del componente popup en true
+		popup.setOpaque(true);
+
+		// Establecer el color de fondo del componente popup utilizando el método
+		// convierteRGBdeHEX con el color "C25E5E"
+		popup.setBackground(Utiles.convierteRGBdeHEX("C25E5E"));
+
+		// Establecer el color de primer plano (foreground) del componente popup
+		// utilizando el método convierteRGBdeHEX con el color "FFE4E1"
+		popup.setForeground(Utiles.convierteRGBdeHEX("FFE4E1"));
+
+	}
+
 }
