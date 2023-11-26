@@ -29,7 +29,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */ 
 
-package components;
+package vista;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -47,7 +47,7 @@ import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 import javax.swing.JFrame;
 
-/* MenuLookDemo.java requires images/middle.gif. */
+/* MenuLookDemo.java requires assets/middle.gif. */
 
 /*
  * This class exists solely to show you what menus look like.
@@ -84,7 +84,7 @@ public class MenuLookDemo {
                 "This doesn't really do anything");
         menu.add(menuItem);
 
-        ImageIcon icon = createImageIcon("images/middle.gif");
+        ImageIcon icon = createImageIcon("assets/middle.gif");
         menuItem = new JMenuItem("Both text and icon", icon);
         menuItem.setMnemonic(KeyEvent.VK_B);
         menu.add(menuItem);

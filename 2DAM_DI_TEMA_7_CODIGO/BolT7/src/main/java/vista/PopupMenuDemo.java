@@ -29,7 +29,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */ 
 
-package components;
+package vista;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -48,7 +48,7 @@ import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 import javax.swing.JFrame;
 
-/* PopupMenuDemo.java requires images/middle.gif. */
+/* PopupMenuDemo.java requires assets/middle.gif. */
 
 /*
  * Like MenuDemo, but with popup menus added.
@@ -86,7 +86,7 @@ public class PopupMenuDemo implements ActionListener, ItemListener {
         menuItem.addActionListener(this);
         menu.add(menuItem);
 
-        ImageIcon icon = createImageIcon("images/middle.gif");
+        ImageIcon icon = createImageIcon("assets/middle.gif");
         menuItem = new JMenuItem("Both text and icon", icon);
         menuItem.setMnemonic(KeyEvent.VK_B);
         menuItem.addActionListener(this);
