@@ -1,4 +1,8 @@
-**A tener en cuenta, las diapositivas: 35, 36, 37 (uso de mnemonicos, miga de pan), 38, 39,  **
+# RA4. Diseña interfaces gráficos identificando y aplicando criterios de usabilidad.
+# 4.h) Se han realizado pruebas para evaluar la usabilidad de la aplicación.
+
+**A tener en cuenta, las diapositivas:**
+> 35, 36, 37 (uso de mnemonicos, miga de pan), 38, 39, 48, 49, 50, 51, 52, 63, 64, 65, 66, 67
 
 ---------------------------------
 
@@ -75,7 +79,7 @@ Puedes ajustarlos según tus necesidades específicas y considerar la posibilida
 
 ---------------------------------
 
-Para realizar pruebas de unidad y automatizar algunos aspectos de las pruebas de usabilidad, puedes utilizar frameworks de pruebas en Java como JUnit o TestNG. Aquí te doy un ejemplo de algunas pruebas que podrías realizar mediante código utilizando JUnit.
+Para realizar pruebas de unidad y automatizar algunos aspectos de las pruebas de usabilidad, puedes utilizar frameworks de pruebas en Java como JUnit o TestNG. 
 
 A continuación, muestro ejemplos de cómo realizar algunas pruebas utilizando JUnit:
 
