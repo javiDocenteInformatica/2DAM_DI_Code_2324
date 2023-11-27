@@ -1,10 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="java.awt.EventQueue"/>
-    <fullyQualifiedTypeName name="vista.PopupMenuDemo"/>
-    <fullyQualifiedTypeName name="controlador.PopupMenuEventsManager"/>
     <fullyQualifiedTypeName name="utiles.Utiles"/>
-    <fullyQualifiedTypeName name="controlador.PopupMenuItemListener"/>
     <fullyQualifiedTypeName name="controlador.PopupMenuActionListener"/>
+    <fullyQualifiedTypeName name="java.awt.Font"/>
+    <fullyQualifiedTypeName name="javax.swing.JPopupMenu"/>
+    <fullyQualifiedTypeName name="vista.PopupMenuDemo"/>
+    <fullyQualifiedTypeName name="java.awt.FontFormatException"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="java.awt.event.MouseEvent"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="controlador.PopupMouseAdapter"/>
+    <fullyQualifiedTypeName name="java.awt.Color"/>
+    <fullyQualifiedTypeName name="java.awt.event.MouseListener"/>
+    <fullyQualifiedTypeName name="controlador.PopupMenuItemListener"/>
+    <fullyQualifiedTypeName name="controlador.PopupMenuItemEventsManager"/>
+    <fullyQualifiedTypeName name="java.awt.event.MouseAdapter"/>
+    <fullyQualifiedTypeName name="java.awt.Component"/>
+    <fullyQualifiedTypeName name="javax.swing.plaf.basic.BasicMenuItemUI"/>
+    <fullyQualifiedTypeName name="javax.swing.event.ChangeListener"/>
+    <fullyQualifiedTypeName name="javax.swing.ButtonModel"/>
+    <fullyQualifiedTypeName name="java.awt.event.WindowListener"/>
+    <fullyQualifiedTypeName name="controlador.PopupMenuEventsManager"/>
+    <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+    <fullyQualifiedTypeName name="javax.swing.JFrame"/>
+    <fullyQualifiedTypeName name="java.awt.event.WindowAdapter"/>
+    <fullyQualifiedTypeName name="javax.swing.UIManager"/>
 </qualifiedTypeNameHistroy>
