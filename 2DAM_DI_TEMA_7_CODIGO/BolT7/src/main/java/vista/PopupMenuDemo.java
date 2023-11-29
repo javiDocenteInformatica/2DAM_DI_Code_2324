@@ -31,29 +31,31 @@
 
 package vista;
 
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.JPopupMenu;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
-import javax.swing.JCheckBoxMenuItem;
-import javax.swing.JRadioButtonMenuItem;
-import javax.swing.ButtonGroup;
-import javax.swing.JMenuBar;
-import javax.swing.KeyStroke;
-import javax.swing.UIManager;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseListener;
 
+import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
+import javax.swing.JCheckBoxMenuItem;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
+import javax.swing.JRadioButtonMenuItem;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.KeyStroke;
+
+import controlador.PopupMenuContextEventsManager;
 import controlador.PopupMenuEventsManager;
 import controlador.PopupMenuItemEventsManager;
-import controlador.PopupMenuContextEventsManager;
 import utiles.Utiles;
-
-import javax.swing.ImageIcon;
-
-import javax.swing.JPanel;
-import javax.swing.JTextArea;
-import javax.swing.JScrollPane;
-import javax.swing.JFrame;
 
 /* PopupMenuDemo.java requires images/middle.gif. */
 
@@ -61,22 +63,22 @@ import javax.swing.JFrame;
  * Like MenuDemo, but with popup menus added.
  */
 public class PopupMenuDemo {
-	private JTextArea output;
-	private JScrollPane scrollPane;
-	
+
+	private JFrame frame;
 	private JPanel contentPane;
-	
+
 	private JMenuBar menuBar;
 	private JMenu menu1, menu2, submenu;
 	private JMenuItem menuItem1, menuItem2, menuItem3, menuItem4, menuItem5;
 	private JRadioButtonMenuItem rbMenuItem1, rbMenuItem2;
 	private JCheckBoxMenuItem cbMenuItem1, cbMenuItem2;
-	
+
 	private JMenuItem menuItem1Contextual, menuItem2Contextual;
-	
-	
-	
-	
+
+	private JPopupMenu popup;
+
+	private JTextArea output;
+	private JScrollPane scrollPane;
 
 	public PopupMenuDemo() {
 
@@ -86,21 +88,20 @@ public class PopupMenuDemo {
 	 * Create the GUI and show it. For thread safety, this method should be invoked
 	 * from the event-dispatching thread.
 	 */
-	public static void createAndShowGUI() {
+	public void createAndShowGUI() {
 		// Create and set up the window.
-		JFrame frame = new JFrame("PopupMenuDemo");
+		frame = new JFrame("PopupMenuDemo");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+
 		// Centrar el Frame en pantalla
 		Utiles.centrarEnPantalla(frame);
 
 		// Create/set menu bar and content pane.
-		PopupMenuDemo menuDemo = new PopupMenuDemo();
-		frame.setContentPane(menuDemo.createContentPane());
-		frame.setJMenuBar(menuDemo.createMenuBar());
+		frame.setContentPane(this.createContentPane());
+		frame.setJMenuBar(this.createMenuBar());
 
 		// Create and set up the popup menu.
-		menuDemo.createPopupMenu();
+		this.createPopupMenu();
 
 		// Display the window.
 		frame.setSize(600, 300);
@@ -109,13 +110,19 @@ public class PopupMenuDemo {
 		// Añade un WindowListener personalizado (PopupMenuEventsManager) al JFrame
 		// (frame).
 		frame.addWindowListener(new PopupMenuEventsManager(frame));
-		
+
 		// TOOLTIPS
+//		 menuBar, menu1, menu2, submenu, menuItem1, menuItem2, menuItem3, menuItem4, menuItem5, rbMenuItem1, rbMenuItem2, cbMenuItem1, cbMenuItem2, menuItem1Contextual, menuItem2Contextual, popup, output, scrollPane;
+
+		Utiles.toolTip(menuBar, "Esta es la barra de menú, en ella encontraremos múltiples opciones, entre ellas: '"
+				+ menu1.getText() + "', '" + menu2.getText() + "'");
+
+		Utiles.toolTip(menu1,
+				"En este menú encontraremos diferentes acciones. Estás acciones son de prueba, y podemos encontrar elementos como: 'JMenuItem', 'JRadioButtonMenuItem', 'JCheckBoxMenuItem', 'JPopupMenu', 'JTextArea' y 'JScrollPane' ");
 
 	}
 
 	public JMenuBar createMenuBar() {
-		
 
 		// Create the menu bar.
 		menuBar = new JMenuBar();
@@ -266,9 +273,9 @@ public class PopupMenuDemo {
 	}
 
 	public void createPopupMenu() {
-		
+
 		// Create the popup menu.
-		JPopupMenu popup = new JPopupMenu();
+		popup = new JPopupMenu();
 		menuItem1Contextual = new JMenuItem("A popup menu item");
 		menuItem1Contextual.addActionListener(new PopupMenuEventsManager(output));
 		popup.add(menuItem1Contextual);
@@ -309,7 +316,5 @@ public class PopupMenuDemo {
 		popup.setForeground(Utiles.convierteRGBdeHEX("FFE4E1"));
 
 	}
-	
-	
 
 }

@@ -14,7 +14,9 @@ public class App {
 			public void run() {
 				// TODO Auto-generated method stub
 				System.out.println("Hello World on " + Thread.currentThread());
-				PopupMenuDemo.createAndShowGUI();
+				
+				PopupMenuDemo popupMenu = new PopupMenuDemo();
+				popupMenu.createAndShowGUI();
 			}
 
 		});

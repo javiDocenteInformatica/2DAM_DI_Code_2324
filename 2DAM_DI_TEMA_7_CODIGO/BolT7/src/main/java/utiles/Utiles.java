@@ -14,6 +14,7 @@ import java.util.Collections;
 import java.util.Enumeration;
 
 import javax.swing.ImageIcon;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JMenuItem;
 import javax.swing.JTextArea;
@@ -187,19 +188,31 @@ public class Utiles {
 		// Ajustar la posición del cursor al final del área de texto
 		textArea.setCaretPosition(textArea.getDocument().getLength());
 	}
-	
-	
-	// Método para centrar un JFrame en la mitad de la pantalla (CUANDO TIENES CONECTADOS 2 MONITORES)
-    public static void centrarEnPantalla(JFrame frame) {
-        // Obtiene la dimensión de la pantalla
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
-        // Calcula la posición para centrar el JFrame
-        int x = (screenSize.width - frame.getWidth()) / 3;
-        int y = (screenSize.height - frame.getHeight()) / 3;
+	// Método para centrar un JFrame en la mitad de la pantalla (CUANDO TIENES
+	// CONECTADOS 2 MONITORES)
+	public static void centrarEnPantalla(JFrame frame) {
+		// Obtiene la dimensión de la pantalla
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
-        // Establece la posición del JFrame
-        frame.setLocation(x, y);
-    }
+		// Calcula la posición para centrar el JFrame
+		int x = (screenSize.width - frame.getWidth()) / 3;
+		int y = (screenSize.height - frame.getHeight()) / 3;
+
+		// Establece la posición del JFrame
+		frame.setLocation(x, y);
+	}
+
+	/**
+	 * Establece un mensaje de tooltip para un componente Swing.
+	 *
+	 * @param componente: El componente Swing al que se le establecerá el tooltip.
+	 * @param mensaje: El mensaje que se mostrará como tooltip en el componente.
+	 * 
+	 */
+	public static void toolTip(JComponent componente, String mensaje) {
+		// Establece el tooltip del componente con el mensaje proporcionado.
+		componente.setToolTipText("<html><p width=\"250px\">" + mensaje + "</p></html>");
+	}
 
 }
