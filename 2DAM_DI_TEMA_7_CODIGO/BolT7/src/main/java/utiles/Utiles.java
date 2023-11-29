@@ -1,8 +1,12 @@
 package utiles;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.FontFormatException;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ItemEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -10,6 +14,9 @@ import java.util.Collections;
 import java.util.Enumeration;
 
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JMenuItem;
+import javax.swing.JTextArea;
 import javax.swing.UIDefaults;
 import javax.swing.UIManager;
 
@@ -124,25 +131,75 @@ public class Utiles {
 	 * Método para imprimir las claves y valores configurados en UIManager.
 	 */
 	public static void printUIManagerKeys() {
-	    // Obtener las configuraciones predeterminadas de UIManager.
-	    UIDefaults defaults = UIManager.getDefaults();
-	    
-	    // Obtener una enumeración de las claves.
-	    Enumeration keysEnumeration = defaults.keys();
-	    
-	    // Convertir la enumeración a una lista.
-	    ArrayList keysList = Collections.list(keysEnumeration);
-	    
-	    // Iterar a través de las claves y mostrar aquellas con valores no nulos.
-	    for (Object key : keysList) {
-	        if (defaults.getString(key) != null) {
-	            System.out.println(key + " - " + defaults.getString(key));
-	        }
-	    }
-	    
-	    // Imprimir la cantidad total de claves.
-	    System.out.println(keysList.size());
+		// Obtener las configuraciones predeterminadas de UIManager.
+		UIDefaults defaults = UIManager.getDefaults();
+
+		// Obtener una enumeración de las claves.
+		Enumeration keysEnumeration = defaults.keys();
+
+		// Convertir la enumeración a una lista.
+		ArrayList keysList = Collections.list(keysEnumeration);
+
+		// Iterar a través de las claves y mostrar aquellas con valores no nulos.
+		for (Object key : keysList) {
+			if (defaults.getString(key) != null) {
+				System.out.println(key + " - " + defaults.getString(key));
+			}
+		}
+
+		// Imprimir la cantidad total de claves.
+		System.out.println(keysList.size());
 	}
 
+	/**
+	 * Muestra un mensaje en un área de texto cuando se detecta un evento de ítem.
+	 *
+	 * @param ev       Evento de ítem.
+	 * @param menuItem Elemento de menú asociado al evento.
+	 * @param textArea Área de texto en la que se mostrará el mensaje.
+	 */
+	public static void mensajeAreaTexto(ItemEvent ev, JMenuItem menuItem, JTextArea textArea) {
+		// Construir el mensaje para el evento de ítem
+		String mensaje = "Evento de ítem detectado." + Utiles.NEW_LINE + "    Fuente del evento: " + menuItem.getText()
+				+ " (una instancia de " + Utiles.getClassName(menuItem) + ")" + Utiles.NEW_LINE + "    Nuevo estado: "
+				+ ((ev.getStateChange() == ItemEvent.SELECTED) ? "seleccionado" : "no seleccionado");
+
+		// Agregar el mensaje al área de texto
+		textArea.append(mensaje + Utiles.NEW_LINE);
+		// Ajustar la posición del cursor al final del área de texto
+		textArea.setCaretPosition(textArea.getDocument().getLength());
+	}
+
+	/**
+	 * Muestra un mensaje en un área de texto cuando se detecta un evento de acción.
+	 *
+	 * @param ev       Evento de acción.
+	 * @param menuItem Elemento de menú asociado al evento.
+	 * @param textArea Área de texto en la que se mostrará el mensaje.
+	 */
+	public static void mensajeAreaTexto(ActionEvent ev, JMenuItem menuItem, JTextArea textArea) {
+		// Construir el mensaje para el evento de acción
+		String mensaje = "Evento de acción detectado." + Utiles.NEW_LINE + "    Fuente del evento: "
+				+ menuItem.getText() + " (una instancia de " + Utiles.getClassName(menuItem) + ")";
+
+		// Agregar el mensaje al área de texto
+		textArea.append(mensaje + Utiles.NEW_LINE);
+		// Ajustar la posición del cursor al final del área de texto
+		textArea.setCaretPosition(textArea.getDocument().getLength());
+	}
+	
+	
+	// Método para centrar un JFrame en la mitad de la pantalla (CUANDO TIENES CONECTADOS 2 MONITORES)
+    public static void centrarEnPantalla(JFrame frame) {
+        // Obtiene la dimensión de la pantalla
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+
+        // Calcula la posición para centrar el JFrame
+        int x = (screenSize.width - frame.getWidth()) / 3;
+        int y = (screenSize.height - frame.getHeight()) / 3;
+
+        // Establece la posición del JFrame
+        frame.setLocation(x, y);
+    }
 
 }

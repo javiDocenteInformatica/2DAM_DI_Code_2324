@@ -31,11 +31,8 @@ public class PopupMenuItemEventsManager extends MouseAdapter implements ItemList
 	@Override
 	public void itemStateChanged(ItemEvent e) {
 		JMenuItem menuItem = (JMenuItem) (e.getSource());
-		String s = "Item event detected." + Utiles.NEW_LINE + "    Event source: " + menuItem.getText()
-				+ " (an instance of " + Utiles.getClassName(menuItem) + ")" + Utiles.NEW_LINE + "    New state: "
-				+ ((e.getStateChange() == ItemEvent.SELECTED) ? "selected" : "unselected");
-		output.append(s + Utiles.NEW_LINE);
-		output.setCaretPosition(output.getDocument().getLength());
+
+		Utiles.mensajeAreaTexto(e,menuItem,output);
 	}
 
 }

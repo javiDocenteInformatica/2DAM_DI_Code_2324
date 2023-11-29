@@ -34,10 +34,12 @@ public class PopupMenuEventsManager extends WindowAdapter implements ActionListe
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		JMenuItem menuItem = (JMenuItem) (e.getSource());
-		String s = "Action event detected." + Utiles.NEW_LINE + "    Event source: " + menuItem.getText()
-				+ " (an instance of " + Utiles.getClassName(menuItem) + ")";
-		output.append(s + Utiles.NEW_LINE);
-		output.setCaretPosition(output.getDocument().getLength());
+		
+		Utiles.mensajeAreaTexto(e, menuItem, output);
+//		String s = "Action event detected." + Utiles.NEW_LINE + "    Event source: " + menuItem.getText()
+//				+ " (an instance of " + Utiles.getClassName(menuItem) + ")";
+//		output.append(s + Utiles.NEW_LINE);
+//		output.setCaretPosition(output.getDocument().getLength());
 	}
 
 	/**

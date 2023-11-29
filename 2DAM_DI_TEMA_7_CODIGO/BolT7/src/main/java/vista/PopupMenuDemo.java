@@ -63,6 +63,20 @@ import javax.swing.JFrame;
 public class PopupMenuDemo {
 	private JTextArea output;
 	private JScrollPane scrollPane;
+	
+	private JPanel contentPane;
+	
+	private JMenuBar menuBar;
+	private JMenu menu1, menu2, submenu;
+	private JMenuItem menuItem1, menuItem2, menuItem3, menuItem4, menuItem5;
+	private JRadioButtonMenuItem rbMenuItem1, rbMenuItem2;
+	private JCheckBoxMenuItem cbMenuItem1, cbMenuItem2;
+	
+	private JMenuItem menuItem1Contextual, menuItem2Contextual;
+	
+	
+	
+	
 
 	public PopupMenuDemo() {
 
@@ -76,6 +90,9 @@ public class PopupMenuDemo {
 		// Create and set up the window.
 		JFrame frame = new JFrame("PopupMenuDemo");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		// Centrar el Frame en pantalla
+		Utiles.centrarEnPantalla(frame);
 
 		// Create/set menu bar and content pane.
 		PopupMenuDemo menuDemo = new PopupMenuDemo();
@@ -92,15 +109,13 @@ public class PopupMenuDemo {
 		// Añade un WindowListener personalizado (PopupMenuEventsManager) al JFrame
 		// (frame).
 		frame.addWindowListener(new PopupMenuEventsManager(frame));
+		
+		// TOOLTIPS
 
 	}
 
 	public JMenuBar createMenuBar() {
-		JMenuBar menuBar;
-		JMenu menu1, menu2, submenu;
-		JMenuItem menuItem1, menuItem2, menuItem3, menuItem4, menuItem5;
-		JRadioButtonMenuItem rbMenuItem1, rbMenuItem2;
-		JCheckBoxMenuItem cbMenuItem1, cbMenuItem2;
+		
 
 		// Create the menu bar.
 		menuBar = new JMenuBar();
@@ -236,7 +251,7 @@ public class PopupMenuDemo {
 
 	public Container createContentPane() {
 		// Create the content-pane-to-be.
-		JPanel contentPane = new JPanel(new BorderLayout());
+		contentPane = new JPanel(new BorderLayout());
 		contentPane.setOpaque(true);
 
 		// Create a scrolled text area.
@@ -251,16 +266,15 @@ public class PopupMenuDemo {
 	}
 
 	public void createPopupMenu() {
-		JMenuItem menuItem1, menuItem2;
-
+		
 		// Create the popup menu.
 		JPopupMenu popup = new JPopupMenu();
-		menuItem1 = new JMenuItem("A popup menu item");
-		menuItem1.addActionListener(new PopupMenuEventsManager(output));
-		popup.add(menuItem1);
-		menuItem2 = new JMenuItem("Another popup menu item");
-		menuItem2.addActionListener(new PopupMenuEventsManager(output));
-		popup.add(menuItem2);
+		menuItem1Contextual = new JMenuItem("A popup menu item");
+		menuItem1Contextual.addActionListener(new PopupMenuEventsManager(output));
+		popup.add(menuItem1Contextual);
+		menuItem2Contextual = new JMenuItem("Another popup menu item");
+		menuItem2Contextual.addActionListener(new PopupMenuEventsManager(output));
+		popup.add(menuItem2Contextual);
 
 		// Add listener to the text area so the popup menu can come up.
 		MouseListener popupListener = new PopupMenuContextEventsManager(popup);
@@ -271,11 +285,11 @@ public class PopupMenuDemo {
 		 */
 		// Configurar la fuente para menuItem1 utilizando la fuente RALEWAY_MEDIUM con
 		// tamaño 14
-		menuItem1.setFont(Utiles.cargaFuentes(Utiles.RALEWAY_MEDIUM, 14));
+		menuItem1Contextual.setFont(Utiles.cargaFuentes(Utiles.RALEWAY_MEDIUM, 14));
 
 		// Configurar la fuente para menuItem2 utilizando la fuente POPPINS_BOLD_ITALIC
 		// con tamaño 15
-		menuItem2.setFont(Utiles.cargaFuentes(Utiles.POPPINS_BOLD_ITALIC, 15));
+		menuItem2Contextual.setFont(Utiles.cargaFuentes(Utiles.POPPINS_BOLD_ITALIC, 15));
 
 		/**
 		 * COLORES
@@ -295,5 +309,7 @@ public class PopupMenuDemo {
 		popup.setForeground(Utiles.convierteRGBdeHEX("FFE4E1"));
 
 	}
+	
+	
 
 }
