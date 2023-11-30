@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="java.awt.EventQueue"/>
-    <fullyQualifiedTypeName name="utiles.Utiles"/>
     <fullyQualifiedTypeName name="controlador.PopupMenuActionListener"/>
     <fullyQualifiedTypeName name="java.awt.Font"/>
     <fullyQualifiedTypeName name="javax.swing.JPopupMenu"/>
@@ -34,4 +33,5 @@
     <fullyQualifiedTypeName name="java.awt.event.MouseEvent"/>
     <fullyQualifiedTypeName name="java.net.URL"/>
     <fullyQualifiedTypeName name="org.junit.jupiter.api.DisplayName"/>
+    <fullyQualifiedTypeName name="utiles.Utiles"/>
 </qualifiedTypeNameHistroy>

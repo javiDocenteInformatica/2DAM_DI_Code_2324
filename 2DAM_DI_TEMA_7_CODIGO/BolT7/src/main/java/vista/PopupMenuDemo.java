@@ -114,17 +114,19 @@ public class PopupMenuDemo {
 		// TOOLTIPS
 //		 menuBar, menu1, menu2, submenu, menuItem1, menuItem2, menuItem3, menuItem4, menuItem5, rbMenuItem1, rbMenuItem2, cbMenuItem1, cbMenuItem2, menuItem1Contextual, menuItem2Contextual, popup, output, scrollPane;
 
-		// Establece un tooltip para la barra de menú, proporcionando información general sobre sus opciones.
+		// Establece un tooltip para la barra de menú, proporcionando información
+		// general sobre sus opciones.
 		Utiles.toolTip(menuBar, "Esta es la barra de menú, en ella encontraremos múltiples opciones, entre ellas: '"
-						+ menu1.getText() + "', '" + menu2.getText() + "'");
+				+ menu1.getText() + "', '" + menu2.getText() + "'");
 
-		// Establece un tooltip para el primer menú, describiendo las acciones y los elementos que se pueden encontrar.
+		// Establece un tooltip para el primer menú, describiendo las acciones y los
+		// elementos que se pueden encontrar.
 		Utiles.toolTip(menu1,
-						"En este menú encontraremos diferentes acciones. Estás acciones son de prueba, y podemos encontrar elementos como: 'JMenuItem', 'JRadioButtonMenuItem', 'JCheckBoxMenuItem', 'JPopupMenu', 'JTextArea' y 'JScrollPane' ");
+				"En este menú encontraremos diferentes acciones. Estás acciones son de prueba, y podemos encontrar elementos como: 'JMenuItem', 'JRadioButtonMenuItem', 'JCheckBoxMenuItem', 'JPopupMenu', 'JTextArea' y 'JScrollPane' ");
 
-		
 		/**
-		 * El resto de elementos los haré de muestra, se debería añadir un mensaje con información más útil, esto solo es un ejemplo:
+		 * El resto de elementos los haré de muestra, se debería añadir un mensaje con
+		 * información más útil, esto solo es un ejemplo:
 		 */
 		// Tooltips para los elementos restantes
 		Utiles.toolTip(menu2, "Otro menú de ejemplo con opciones adicionales.");
@@ -155,9 +157,24 @@ public class PopupMenuDemo {
 
 		Utiles.toolTip(menuItem2Contextual, "Elemento de menú contextual 2.");
 
-
 	}
 
+	public Container createContentPane() {
+		// Create the content-pane-to-be.
+		contentPane = new JPanel(new BorderLayout());
+		contentPane.setOpaque(true);
+
+		// Create a scrolled text area.
+		output = new JTextArea(5, 30);
+		output.setEditable(false);
+		scrollPane = new JScrollPane(output);
+
+		// Add the text area to the content pane.
+		contentPane.add(scrollPane, BorderLayout.CENTER);
+
+		return contentPane;
+	}
+	
 	public JMenuBar createMenuBar() {
 
 		// Create the menu bar.
@@ -166,14 +183,20 @@ public class PopupMenuDemo {
 		// Build the first menu.
 		menu1 = new JMenu("A Menu");
 		menu1.setMnemonic(KeyEvent.VK_A);
-		menu1.getAccessibleContext().setAccessibleDescription("The only menu in this program that has menu items");
+		menu1.getAccessibleContext().setAccessibleDescription("El único menú en este programa que tiene elementos de menú.");
 		menuBar.add(menu1);
 
 		// a group of JMenuItems
-		menuItem1 = new JMenuItem("A text-only menu item", KeyEvent.VK_T);
+		menuItem1 = new JMenuItem("Un menu item de sólo texto", KeyEvent.VK_T);
 		// menuItem.setMnemonic(KeyEvent.VK_T); //used constructor instead
+		// Establecer un atajo de teclado para el JMenuItem, de modo que al presionar
+		// ALT + 1 se active
 		menuItem1.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, ActionEvent.ALT_MASK));
-		menuItem1.getAccessibleContext().setAccessibleDescription("This doesn't really do anything");
+		// Establecer una descripción accesible para el JMenuItem (útil para usuarios
+		// con necesidades especiales)
+		menuItem1.getAccessibleContext().setAccessibleDescription("Menú: 'Un menu item de sólo texto'");
+		// Agregar un ActionListener al JMenuItem, de modo que cuando se seleccione, se
+		// llame al PopupMenuEventsManager
 		menuItem1.addActionListener(new PopupMenuEventsManager(output));
 		menu1.add(menuItem1);
 
@@ -292,22 +315,6 @@ public class PopupMenuDemo {
 		return menuBar;
 	}
 
-	public Container createContentPane() {
-		// Create the content-pane-to-be.
-		contentPane = new JPanel(new BorderLayout());
-		contentPane.setOpaque(true);
-
-		// Create a scrolled text area.
-		output = new JTextArea(5, 30);
-		output.setEditable(false);
-		scrollPane = new JScrollPane(output);
-
-		// Add the text area to the content pane.
-		contentPane.add(scrollPane, BorderLayout.CENTER);
-
-		return contentPane;
-	}
-
 	public JPopupMenu createPopupMenu() {
 
 		// Create the popup menu.
@@ -351,7 +358,6 @@ public class PopupMenuDemo {
 		// utilizando el método convierteRGBdeHEX con el color "FFE4E1"
 		popup.setForeground(Utiles.convierteRGBdeHEX(Utiles.COLOR_ROJO2));
 
-		
 		return popup;
 	}
 

@@ -11,7 +11,7 @@
 
 	<name>BolT7</name>
 	<!-- FIXME change it to the project's website -->
-	<url>http://www.example.com</url>
+	<url>2dam_di_bolt7</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -48,6 +48,15 @@
 
 		</dependency>
 		<!-- Comentario: Fin de la definición de la dependencia -->
+
+		<!-- https://mvnrepository.com/artifact/org.assertj/assertj-swing-junit -->
+		<!-- <dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-swing-junit</artifactId>
+			<version>3.17.1</version>
+			<scope>test</scope>
+		</dependency> -->
+
 
 	</dependencies>
 	<!-- Comentario: Fin de la sección de dependencias en el archivo POM.xml -->
