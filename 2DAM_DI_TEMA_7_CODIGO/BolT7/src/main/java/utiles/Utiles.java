@@ -1,6 +1,9 @@
 package utiles;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.FontFormatException;
@@ -18,8 +21,12 @@ import java.util.Enumeration;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JTextArea;
+import javax.swing.MenuElement;
+import javax.swing.MenuSelectionManager;
 import javax.swing.UIDefaults;
 import javax.swing.UIManager;
 
@@ -226,6 +233,18 @@ public class Utiles extends JComponent{
 		// Establece el tooltip del componente con el mensaje proporcionado.
 		componente.setToolTipText("<html><p width=\"250px\">" + mensaje + "</p></html>");
 		
+	}
+	
+	
+	public static void pruebaClickMenu(popupMenuDemo popupMenu) {
+JMenuBar jMenuBar = popupMenuDemo.createMenuBar();
+		
+JMenu menu  = jMenuBar.getComponent(0);
+				
+			// Crea un nuevo evento de selección para el menú
+		    MenuElement[] path = { jMenuBar, menu };
+		    MenuSelectionManager.defaultManager().setSelectedPath(path);
+		}
 	}
 
 

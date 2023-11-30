@@ -81,6 +81,58 @@ public class PopupMenuDemo {
 	private JScrollPane scrollPane;
 
 	public PopupMenuDemo() {
+		// Se crea una instancia de JFrame con el título "PopupMenuDemo".
+		frame = new JFrame("PopupMenuDemo");
+
+		// Se crea el contenedor que será el panel principal con un diseño de
+		// BorderLayout.
+		contentPane = new JPanel(new BorderLayout());
+
+		// Se crea un área de texto desplazable.
+		output = new JTextArea(5, 30);
+
+		// Se crea un JScrollPane y se le asigna el área de texto para permitir el
+		// desplazamiento.
+		scrollPane = new JScrollPane(output);
+
+		// Se crea la barra de menú.
+		menuBar = new JMenuBar();
+
+		// Se construye el primer menú.
+		menu1 = new JMenu("Un Menú");
+
+		// Se crea un JMenuItem con texto y una tecla de acceso rápido.
+		menuItem1 = new JMenuItem("Un elemento de menú solo con texto", KeyEvent.VK_T);
+
+		// Se crea un icono con la ayuda de un método de utilidad.
+		ImageIcon icon = Utiles.createImageIcon("../assets/middle.gif");
+
+		// También se puede crear un JMenuItem con texto e icono.
+		menuItem2 = new JMenuItem("Texto e icono", icon);
+
+		// O simplemente un JMenuItem con solo un icono.
+		menuItem3 = new JMenuItem(icon);
+
+		// Se crea un JMenuItem con una casilla de verificación.
+		cbMenuItem1 = new JCheckBoxMenuItem("Un elemento de menú con casilla de verificación");
+
+		// Se crea un elemento de menú de casilla de verificación con etiqueta "Otro".
+		cbMenuItem2 = new JCheckBoxMenuItem("Otro");
+
+		// Se crea un submenu dentro del menú principal.
+		submenu = new JMenu("Un submenú");
+
+		// Se crea un elemento de menú con etiqueta "Un elemento en el submenú".
+		menuItem4 = new JMenuItem("Un elemento en el submenú");
+
+		// Se crea un elemento de menú con etiqueta "Otro elemento".
+		menuItem5 = new JMenuItem("Otro elemento");
+
+		// Se construye el segundo menú en la barra de menú.
+		menu2 = new JMenu("Otro Menú");
+
+		// Se crea el menú emergente.
+		popup = new JPopupMenu();
 
 	}
 
@@ -90,7 +142,7 @@ public class PopupMenuDemo {
 	 */
 	public void createAndShowGUI() {
 		// Create and set up the window.
-		frame = new JFrame("PopupMenuDemo");
+//		frame = new JFrame("PopupMenuDemo");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		// Centrar el Frame en pantalla
@@ -161,33 +213,34 @@ public class PopupMenuDemo {
 
 	public Container createContentPane() {
 		// Create the content-pane-to-be.
-		contentPane = new JPanel(new BorderLayout());
+//		contentPane = new JPanel(new BorderLayout());
 		contentPane.setOpaque(true);
 
 		// Create a scrolled text area.
-		output = new JTextArea(5, 30);
+//		output = new JTextArea(5, 30);
 		output.setEditable(false);
-		scrollPane = new JScrollPane(output);
+//		scrollPane = new JScrollPane(output);
 
 		// Add the text area to the content pane.
 		contentPane.add(scrollPane, BorderLayout.CENTER);
 
 		return contentPane;
 	}
-	
+
 	public JMenuBar createMenuBar() {
 
 		// Create the menu bar.
-		menuBar = new JMenuBar();
+//		menuBar = new JMenuBar();
 
 		// Build the first menu.
 		menu1 = new JMenu("A Menu");
 		menu1.setMnemonic(KeyEvent.VK_A);
-		menu1.getAccessibleContext().setAccessibleDescription("El único menú en este programa que tiene elementos de menú.");
+		menu1.getAccessibleContext()
+				.setAccessibleDescription("El único menú en este programa que tiene elementos de menú.");
 		menuBar.add(menu1);
 
 		// a group of JMenuItems
-		menuItem1 = new JMenuItem("Un menu item de sólo texto", KeyEvent.VK_T);
+//		menuItem1 = new JMenuItem("Un menu item de sólo texto", KeyEvent.VK_T);
 		// menuItem.setMnemonic(KeyEvent.VK_T); //used constructor instead
 		// Establecer un atajo de teclado para el JMenuItem, de modo que al presionar
 		// ALT + 1 se active
@@ -200,13 +253,13 @@ public class PopupMenuDemo {
 		menuItem1.addActionListener(new PopupMenuEventsManager(output));
 		menu1.add(menuItem1);
 
-		ImageIcon icon = Utiles.createImageIcon("../assets/middle.gif");
-		menuItem2 = new JMenuItem("Both text and icon", icon);
+//		ImageIcon icon = Utiles.createImageIcon("../assets/middle.gif");
+//		menuItem2 = new JMenuItem("Both text and icon", icon);
 		menuItem2.setMnemonic(KeyEvent.VK_B);
 		menuItem2.addActionListener(new PopupMenuEventsManager(output));
 		menu1.add(menuItem2);
 
-		menuItem3 = new JMenuItem(icon);
+//		menuItem3 = new JMenuItem(icon);
 		menuItem3.setMnemonic(KeyEvent.VK_D);
 		menuItem3.addActionListener(new PopupMenuEventsManager(output));
 		menu1.add(menuItem3);
@@ -230,33 +283,33 @@ public class PopupMenuDemo {
 
 		// a group of check box menu items
 		menu1.addSeparator();
-		cbMenuItem1 = new JCheckBoxMenuItem("A check box menu item");
+//		cbMenuItem1 = new JCheckBoxMenuItem("A check box menu item");
 		cbMenuItem1.setMnemonic(KeyEvent.VK_C);
 		cbMenuItem1.addItemListener(new PopupMenuItemEventsManager(output));
 		menu1.add(cbMenuItem1);
 
-		cbMenuItem2 = new JCheckBoxMenuItem("Another one");
+//		cbMenuItem2 = new JCheckBoxMenuItem("Another one");
 		cbMenuItem2.setMnemonic(KeyEvent.VK_H);
 		cbMenuItem2.addItemListener(new PopupMenuItemEventsManager(output));
 		menu1.add(cbMenuItem2);
 
 		// a submenu
 		menu1.addSeparator();
-		submenu = new JMenu("A submenu");
+//		submenu = new JMenu("A submenu");
 		submenu.setMnemonic(KeyEvent.VK_S);
 
-		menuItem4 = new JMenuItem("An item in the submenu");
+//		menuItem4 = new JMenuItem("An item in the submenu");
 		menuItem4.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_2, ActionEvent.ALT_MASK));
 		menuItem4.addActionListener(new PopupMenuEventsManager(output));
 		submenu.add(menuItem4);
 
-		menuItem5 = new JMenuItem("Another item");
+//		menuItem5 = new JMenuItem("Another item");
 		menuItem5.addActionListener(new PopupMenuEventsManager(output));
 		submenu.add(menuItem5);
 		menu1.add(submenu);
 
 		// Build second menu in the menu bar.
-		menu2 = new JMenu("Another Menu");
+//		menu2 = new JMenu("Another Menu");
 		menu2.setMnemonic(KeyEvent.VK_N);
 		menu2.getAccessibleContext().setAccessibleDescription("This menu does nothing");
 		menuBar.add(menu2);
@@ -318,7 +371,7 @@ public class PopupMenuDemo {
 	public JPopupMenu createPopupMenu() {
 
 		// Create the popup menu.
-		popup = new JPopupMenu();
+//		popup = new JPopupMenu();
 		menuItem1Contextual = new JMenuItem("A popup menu item");
 		menuItem1Contextual.addActionListener(new PopupMenuEventsManager(output));
 		popup.add(menuItem1Contextual);

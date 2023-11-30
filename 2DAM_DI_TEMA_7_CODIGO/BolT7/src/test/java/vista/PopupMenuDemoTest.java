@@ -1,10 +1,14 @@
 package vista;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.awt.Component;
 
+import javax.swing.JMenu;
 import javax.swing.JMenuBar;
+import javax.swing.MenuElement;
+import javax.swing.MenuSelectionManager;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -55,14 +59,35 @@ public class PopupMenuDemoTest {
 		JMenuBar jMenuBar = popupMenuDemo.createMenuBar();
 		
 		Component[] componentes = jMenuBar.getComponents();
+		JMenu menu = null;
 		for (int i=0; i< componentes.length; i++) {
-			System.out.println(componentes[i].toString());
+			menu = (JMenu) componentes[i];
+//			System.out.println(menu.getText());
+			// Crea un nuevo evento de selección para el menú
+		    MenuElement[] path = { jMenuBar, menu };
+		    MenuSelectionManager.defaultManager().setSelectedPath(path);
+
+		    // Realiza las verificaciones necesarias después del clic en el menú
+		    assertTrue(menu.isSelected());
 		}
 	}
 
 	@Test
 	public void testClickMenuItem() {
+		JMenuBar jMenuBar = popupMenuDemo.createMenuBar();
+		Component[] componentes = jMenuBar.getComponents();
+		JMenu menu = null;
+		for (int i=0; i< componentes.length; i++) {
+			menu = (JMenu) componentes[i];
+//			System.out.println(menu.getText());
+			// Crea un nuevo evento de selección para el menú
+		    MenuElement[] path = { jMenuBar, menu };
+		    MenuSelectionManager.defaultManager().setSelectedPath(path);
 
+		    // Realiza las verificaciones necesarias después del clic en el menú
+		    assertTrue(menu.isSelected());
+		}
+		
 	}
 
 	@Test
