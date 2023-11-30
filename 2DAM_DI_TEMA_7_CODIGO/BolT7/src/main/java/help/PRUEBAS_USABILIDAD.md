@@ -4,6 +4,10 @@
 **A tener en cuenta, las diapositivas:**
 > 35, 36, 37 (uso de mnemonicos, miga de pan), 38, 39, 48, 49, 50, 51, 52, 63, 64, 65, 66, 67
 
+> Añadir ToolTips a los componentes para darle claridad a los componentes
+
+> Añadir ventanas de diálogo (JOptionPane por ejemplo) para mejorar la claridad de la aplicación.
+
 ---------------------------------
 
 Para realizar pruebas de usabilidad de la aplicación, seguiremos los pasos básicos que generalmente se realizan en el desarrollo de software. 
@@ -154,3 +158,11 @@ public class UtilesTest {
 ```
 
 Estos son solo ejemplos básicos y puedes ampliarlos según tus necesidades específicas. Para ejecutar estas pruebas, configura un entorno de prueba en tu IDE o utiliza la línea de comandos con herramientas como Maven o Gradle. Las pruebas automatizadas te ayudarán a identificar rápidamente problemas y a garantizar la integridad de tu código a medida que realizas cambios y mejoras en tu aplicación.
+
+
+------------------------
+------------------------
+
++ Cómo hacer pruebas de usabilidad: https://www.youtube.com/watch?v=fvs0YHvWRvU
++ Pruebas de Usabilidad: https://www.youtube.com/watch?v=4OvTDueifA0
++ ¿Qué es JENKINS y para qué sirve?: https://www.youtube.com/watch?v=wcGbMDEvktU

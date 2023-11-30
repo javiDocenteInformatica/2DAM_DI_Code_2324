@@ -114,11 +114,47 @@ public class PopupMenuDemo {
 		// TOOLTIPS
 //		 menuBar, menu1, menu2, submenu, menuItem1, menuItem2, menuItem3, menuItem4, menuItem5, rbMenuItem1, rbMenuItem2, cbMenuItem1, cbMenuItem2, menuItem1Contextual, menuItem2Contextual, popup, output, scrollPane;
 
+		// Establece un tooltip para la barra de menú, proporcionando información general sobre sus opciones.
 		Utiles.toolTip(menuBar, "Esta es la barra de menú, en ella encontraremos múltiples opciones, entre ellas: '"
-				+ menu1.getText() + "', '" + menu2.getText() + "'");
+						+ menu1.getText() + "', '" + menu2.getText() + "'");
 
+		// Establece un tooltip para el primer menú, describiendo las acciones y los elementos que se pueden encontrar.
 		Utiles.toolTip(menu1,
-				"En este menú encontraremos diferentes acciones. Estás acciones son de prueba, y podemos encontrar elementos como: 'JMenuItem', 'JRadioButtonMenuItem', 'JCheckBoxMenuItem', 'JPopupMenu', 'JTextArea' y 'JScrollPane' ");
+						"En este menú encontraremos diferentes acciones. Estás acciones son de prueba, y podemos encontrar elementos como: 'JMenuItem', 'JRadioButtonMenuItem', 'JCheckBoxMenuItem', 'JPopupMenu', 'JTextArea' y 'JScrollPane' ");
+
+		
+		/**
+		 * El resto de elementos los haré de muestra, se debería añadir un mensaje con información más útil, esto solo es un ejemplo:
+		 */
+		// Tooltips para los elementos restantes
+		Utiles.toolTip(menu2, "Otro menú de ejemplo con opciones adicionales.");
+
+		Utiles.toolTip(submenu, "Un submenú que contiene más opciones.");
+
+		Utiles.toolTip(menuItem1, "Un elemento de menú de prueba con acción asociada.");
+
+		Utiles.toolTip(menuItem2, "Otro elemento de menú con acción asociada y un ícono.");
+
+		Utiles.toolTip(menuItem3, "Un tercer elemento de menú con solo un ícono.");
+
+		Utiles.toolTip(rbMenuItem1, "Un elemento de menú de radio button (seleccionable).");
+
+		Utiles.toolTip(rbMenuItem2, "Otro elemento de radio button en un grupo.");
+
+		Utiles.toolTip(cbMenuItem1, "Un elemento de menú de casilla de verificación (check box).");
+
+		Utiles.toolTip(cbMenuItem2, "Otro elemento de casilla de verificación.");
+
+		Utiles.toolTip(popup, "Un menú emergente con opciones adicionales.");
+
+		Utiles.toolTip(output, "Área de texto para mostrar resultados y mensajes.");
+
+		Utiles.toolTip(scrollPane, "Un área de desplazamiento para el texto largo.");
+
+		Utiles.toolTip(menuItem1Contextual, "Elemento de menú contextual 1.");
+
+		Utiles.toolTip(menuItem2Contextual, "Elemento de menú contextual 2.");
+
 
 	}
 
@@ -237,20 +273,20 @@ public class PopupMenuDemo {
 		submenu.setOpaque(true);
 
 		// Establece el color de fondo y el color de primer plano del primer menú
-		menu1.setBackground(Utiles.convierteRGBdeHEX("C25E5E")); // Color de fondo rojo oscuro
+		menu1.setBackground(Utiles.convierteRGBdeHEX(Utiles.COLOR_ROJO1)); // Color de fondo rojo oscuro
 		menu1.setForeground(Color.WHITE); // Color de primer plano blanco
 
 		// Establece el color de fondo y el color de primer plano del segundo menú
-		menu2.setBackground(Utiles.convierteRGBdeHEX("574240")); // Color de fondo marrón oscuro
+		menu2.setBackground(Utiles.convierteRGBdeHEX(Utiles.COLOR_MARRON1)); // Color de fondo marrón oscuro
 		menu2.setForeground(Color.WHITE); // Color de primer plano blanco
 
 		// Establece el color de fondo y el color de primer plano del submenú
-		submenu.setBackground(Utiles.convierteRGBdeHEX("005983")); // Color de fondo azul oscuro
+		submenu.setBackground(Utiles.convierteRGBdeHEX(Utiles.COLOR_AZUL1)); // Color de fondo azul oscuro
 		submenu.setForeground(Color.WHITE); // Color de primer plano blanco
 
 		// Establece el color de fondo y el color de primer plano del área de salida
 		// (JTextArea)
-		output.setBackground(Utiles.convierteRGBdeHEX("BFA5A4")); // Color de fondo beige claro
+		output.setBackground(Utiles.convierteRGBdeHEX(Utiles.COLOR_MARRON2)); // Color de fondo beige claro
 		output.setForeground(Color.WHITE); // Color de primer plano blanco
 
 		return menuBar;
@@ -272,7 +308,7 @@ public class PopupMenuDemo {
 		return contentPane;
 	}
 
-	public void createPopupMenu() {
+	public JPopupMenu createPopupMenu() {
 
 		// Create the popup menu.
 		popup = new JPopupMenu();
@@ -309,12 +345,14 @@ public class PopupMenuDemo {
 
 		// Establecer el color de fondo del componente popup utilizando el método
 		// convierteRGBdeHEX con el color "C25E5E"
-		popup.setBackground(Utiles.convierteRGBdeHEX("C25E5E"));
+		popup.setBackground(Utiles.convierteRGBdeHEX(Utiles.COLOR_ROJO1));
 
 		// Establecer el color de primer plano (foreground) del componente popup
 		// utilizando el método convierteRGBdeHEX con el color "FFE4E1"
-		popup.setForeground(Utiles.convierteRGBdeHEX("FFE4E1"));
+		popup.setForeground(Utiles.convierteRGBdeHEX(Utiles.COLOR_ROJO2));
 
+		
+		return popup;
 	}
 
 }

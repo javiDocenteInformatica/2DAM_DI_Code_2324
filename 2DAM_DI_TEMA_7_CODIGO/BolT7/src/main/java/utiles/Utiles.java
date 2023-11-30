@@ -4,9 +4,11 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.FontFormatException;
+import java.awt.Point;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ItemEvent;
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -23,10 +25,11 @@ import javax.swing.UIManager;
 
 import vista.PopupMenuDemo;
 
-public class Utiles {
+public class Utiles extends JComponent{
 
 	public static final String NEW_LINE = "\n";
 
+	// FUENTES
 	public static final String ROBOTO_BLACK = "Roboto/Roboto-Black.ttf";
 	public static final String ROBOTO_BLACK_ITALIC = "Roboto/Roboto-BlackItalic.ttf";
 	public static final String ROBOTO_BOLD = "Roboto/Roboto-Bold.ttf";
@@ -36,6 +39,14 @@ public class Utiles {
 	public static final String RALEWAY_BOLD = "Raleway/Raleway-Bold.ttf";
 	public static final String RALEWAY_BOLD_ITALIC = "Raleway/Raleway-BoldItalic.ttf";
 	public static final String RALEWAY_MEDIUM = "Raleway/Raleway-Medium.ttf";
+	
+	// COLORES
+	public static final String COLOR_ROJO1="C25E5E";
+	public static final String COLOR_ROJO2="FFE4E1";
+	public static final String COLOR_MARRON1="574240";
+	public static final String COLOR_MARRON2="BFA5A4";
+	public static final String COLOR_AZUL1="005983";
+	
 
 	/**
 	 * Obtiene el nombre de la clase de un objeto.
@@ -211,8 +222,11 @@ public class Utiles {
 	 * 
 	 */
 	public static void toolTip(JComponent componente, String mensaje) {
+		
 		// Establece el tooltip del componente con el mensaje proporcionado.
 		componente.setToolTipText("<html><p width=\"250px\">" + mensaje + "</p></html>");
+		
 	}
+
 
 }
