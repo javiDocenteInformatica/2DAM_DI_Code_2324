@@ -55,7 +55,7 @@ public class PopupMenuDemoTest {
 	}
 
 	@Test
-	public void testClickMenu() {
+	public void testSelectMenu() {
 		JMenuBar jMenuBar = popupMenuDemo.createMenuBar();
 		
 		Component[] componentes = jMenuBar.getComponents();

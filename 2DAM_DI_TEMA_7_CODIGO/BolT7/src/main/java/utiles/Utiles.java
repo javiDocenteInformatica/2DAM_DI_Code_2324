@@ -1,17 +1,12 @@
 package utiles;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.FontFormatException;
-import java.awt.Point;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ItemEvent;
-import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -32,7 +27,7 @@ import javax.swing.UIManager;
 
 import vista.PopupMenuDemo;
 
-public class Utiles extends JComponent{
+public class Utiles extends JComponent {
 
 	public static final String NEW_LINE = "\n";
 
@@ -46,14 +41,13 @@ public class Utiles extends JComponent{
 	public static final String RALEWAY_BOLD = "Raleway/Raleway-Bold.ttf";
 	public static final String RALEWAY_BOLD_ITALIC = "Raleway/Raleway-BoldItalic.ttf";
 	public static final String RALEWAY_MEDIUM = "Raleway/Raleway-Medium.ttf";
-	
+
 	// COLORES
-	public static final String COLOR_ROJO1="C25E5E";
-	public static final String COLOR_ROJO2="FFE4E1";
-	public static final String COLOR_MARRON1="574240";
-	public static final String COLOR_MARRON2="BFA5A4";
-	public static final String COLOR_AZUL1="005983";
-	
+	public static final String COLOR_ROJO1 = "C25E5E";
+	public static final String COLOR_ROJO2 = "FFE4E1";
+	public static final String COLOR_MARRON1 = "574240";
+	public static final String COLOR_MARRON2 = "BFA5A4";
+	public static final String COLOR_AZUL1 = "005983";
 
 	/**
 	 * Obtiene el nombre de la clase de un objeto.
@@ -225,27 +219,35 @@ public class Utiles extends JComponent{
 	 * Establece un mensaje de tooltip para un componente Swing.
 	 *
 	 * @param componente: El componente Swing al que se le establecerá el tooltip.
-	 * @param mensaje: El mensaje que se mostrará como tooltip en el componente.
+	 * @param mensaje:    El mensaje que se mostrará como tooltip en el componente.
 	 * 
 	 */
 	public static void toolTip(JComponent componente, String mensaje) {
-		
+
 		// Establece el tooltip del componente con el mensaje proporcionado.
 		componente.setToolTipText("<html><p width=\"250px\">" + mensaje + "</p></html>");
-		
-	}
-	
-	
-	public static void pruebaClickMenu(popupMenuDemo popupMenu) {
-JMenuBar jMenuBar = popupMenuDemo.createMenuBar();
-		
-JMenu menu  = jMenuBar.getComponent(0);
-				
-			// Crea un nuevo evento de selección para el menú
-		    MenuElement[] path = { jMenuBar, menu };
-		    MenuSelectionManager.defaultManager().setSelectedPath(path);
-		}
+
 	}
 
+	/**
+	 * Este método te permite seleccionar un Menú. El menú se verá seleccionado con
+	 * un sombreado.
+	 */
+	public static void pruebaSelectMenu(PopupMenuDemo popupMenu) {
+
+		JMenuBar jMenuBar = popupMenu.getMenuBar();
+
+//				JMenu menu  = (JMenu) jMenuBar.getComponent(0); //prueba selección Menu1
+		JMenu menu = (JMenu) jMenuBar.getComponent(1); // prueba selección Menu2
+		System.out.println(String.format("%s%s%s", "pruebaClickMenu: ", "menu: ", menu.getText()));
+
+		// Crea un nuevo evento de selección para el menú
+		MenuElement[] path = { jMenuBar, menu };
+		System.out.println(String.format("%s%s%s", "pruebaClickMenu: ", "path: ", path));
+
+		MenuSelectionManager defaultMenuSelection = MenuSelectionManager.defaultManager();
+		defaultMenuSelection.setSelectedPath(path);
+//			    System.out.println(String.format("%s%s%s", "pruebaClickMenu: ", "path: " , defaultMenuSelection.isComponentPartOfCurrentMenu(menu)));
+	}
 
 }

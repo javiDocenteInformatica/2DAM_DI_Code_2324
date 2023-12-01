@@ -209,6 +209,11 @@ public class PopupMenuDemo {
 
 		Utiles.toolTip(menuItem2Contextual, "Elemento de menú contextual 2.");
 
+		
+		// probando click en MENU
+		Utiles.pruebaSelectMenu(this);
+		
+		
 	}
 
 	public Container createContentPane() {
@@ -412,6 +417,286 @@ public class PopupMenuDemo {
 		popup.setForeground(Utiles.convierteRGBdeHEX(Utiles.COLOR_ROJO2));
 
 		return popup;
+	}
+
+	/**
+	 * @return the frame
+	 */
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	/**
+	 * @param frame the frame to set
+	 */
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
+	}
+
+	/**
+	 * @return the contentPane
+	 */
+	public JPanel getContentPane() {
+		return contentPane;
+	}
+
+	/**
+	 * @param contentPane the contentPane to set
+	 */
+	public void setContentPane(JPanel contentPane) {
+		this.contentPane = contentPane;
+	}
+
+	/**
+	 * @return the menuBar
+	 */
+	public JMenuBar getMenuBar() {
+		return menuBar;
+	}
+
+	/**
+	 * @param menuBar the menuBar to set
+	 */
+	public void setMenuBar(JMenuBar menuBar) {
+		this.menuBar = menuBar;
+	}
+
+	/**
+	 * @return the menu1
+	 */
+	public JMenu getMenu1() {
+		return menu1;
+	}
+
+	/**
+	 * @param menu1 the menu1 to set
+	 */
+	public void setMenu1(JMenu menu1) {
+		this.menu1 = menu1;
+	}
+
+	/**
+	 * @return the menu2
+	 */
+	public JMenu getMenu2() {
+		return menu2;
+	}
+
+	/**
+	 * @param menu2 the menu2 to set
+	 */
+	public void setMenu2(JMenu menu2) {
+		this.menu2 = menu2;
+	}
+
+	/**
+	 * @return the submenu
+	 */
+	public JMenu getSubmenu() {
+		return submenu;
+	}
+
+	/**
+	 * @param submenu the submenu to set
+	 */
+	public void setSubmenu(JMenu submenu) {
+		this.submenu = submenu;
+	}
+
+	/**
+	 * @return the menuItem1
+	 */
+	public JMenuItem getMenuItem1() {
+		return menuItem1;
+	}
+
+	/**
+	 * @param menuItem1 the menuItem1 to set
+	 */
+	public void setMenuItem1(JMenuItem menuItem1) {
+		this.menuItem1 = menuItem1;
+	}
+
+	/**
+	 * @return the menuItem2
+	 */
+	public JMenuItem getMenuItem2() {
+		return menuItem2;
+	}
+
+	/**
+	 * @param menuItem2 the menuItem2 to set
+	 */
+	public void setMenuItem2(JMenuItem menuItem2) {
+		this.menuItem2 = menuItem2;
+	}
+
+	/**
+	 * @return the menuItem3
+	 */
+	public JMenuItem getMenuItem3() {
+		return menuItem3;
+	}
+
+	/**
+	 * @param menuItem3 the menuItem3 to set
+	 */
+	public void setMenuItem3(JMenuItem menuItem3) {
+		this.menuItem3 = menuItem3;
+	}
+
+	/**
+	 * @return the menuItem4
+	 */
+	public JMenuItem getMenuItem4() {
+		return menuItem4;
+	}
+
+	/**
+	 * @param menuItem4 the menuItem4 to set
+	 */
+	public void setMenuItem4(JMenuItem menuItem4) {
+		this.menuItem4 = menuItem4;
+	}
+
+	/**
+	 * @return the menuItem5
+	 */
+	public JMenuItem getMenuItem5() {
+		return menuItem5;
+	}
+
+	/**
+	 * @param menuItem5 the menuItem5 to set
+	 */
+	public void setMenuItem5(JMenuItem menuItem5) {
+		this.menuItem5 = menuItem5;
+	}
+
+	/**
+	 * @return the rbMenuItem1
+	 */
+	public JRadioButtonMenuItem getRbMenuItem1() {
+		return rbMenuItem1;
+	}
+
+	/**
+	 * @param rbMenuItem1 the rbMenuItem1 to set
+	 */
+	public void setRbMenuItem1(JRadioButtonMenuItem rbMenuItem1) {
+		this.rbMenuItem1 = rbMenuItem1;
+	}
+
+	/**
+	 * @return the rbMenuItem2
+	 */
+	public JRadioButtonMenuItem getRbMenuItem2() {
+		return rbMenuItem2;
+	}
+
+	/**
+	 * @param rbMenuItem2 the rbMenuItem2 to set
+	 */
+	public void setRbMenuItem2(JRadioButtonMenuItem rbMenuItem2) {
+		this.rbMenuItem2 = rbMenuItem2;
+	}
+
+	/**
+	 * @return the cbMenuItem1
+	 */
+	public JCheckBoxMenuItem getCbMenuItem1() {
+		return cbMenuItem1;
+	}
+
+	/**
+	 * @param cbMenuItem1 the cbMenuItem1 to set
+	 */
+	public void setCbMenuItem1(JCheckBoxMenuItem cbMenuItem1) {
+		this.cbMenuItem1 = cbMenuItem1;
+	}
+
+	/**
+	 * @return the cbMenuItem2
+	 */
+	public JCheckBoxMenuItem getCbMenuItem2() {
+		return cbMenuItem2;
+	}
+
+	/**
+	 * @param cbMenuItem2 the cbMenuItem2 to set
+	 */
+	public void setCbMenuItem2(JCheckBoxMenuItem cbMenuItem2) {
+		this.cbMenuItem2 = cbMenuItem2;
+	}
+
+	/**
+	 * @return the menuItem1Contextual
+	 */
+	public JMenuItem getMenuItem1Contextual() {
+		return menuItem1Contextual;
+	}
+
+	/**
+	 * @param menuItem1Contextual the menuItem1Contextual to set
+	 */
+	public void setMenuItem1Contextual(JMenuItem menuItem1Contextual) {
+		this.menuItem1Contextual = menuItem1Contextual;
+	}
+
+	/**
+	 * @return the menuItem2Contextual
+	 */
+	public JMenuItem getMenuItem2Contextual() {
+		return menuItem2Contextual;
+	}
+
+	/**
+	 * @param menuItem2Contextual the menuItem2Contextual to set
+	 */
+	public void setMenuItem2Contextual(JMenuItem menuItem2Contextual) {
+		this.menuItem2Contextual = menuItem2Contextual;
+	}
+
+	/**
+	 * @return the popup
+	 */
+	public JPopupMenu getPopup() {
+		return popup;
+	}
+
+	/**
+	 * @param popup the popup to set
+	 */
+	public void setPopup(JPopupMenu popup) {
+		this.popup = popup;
+	}
+
+	/**
+	 * @return the output
+	 */
+	public JTextArea getOutput() {
+		return output;
+	}
+
+	/**
+	 * @param output the output to set
+	 */
+	public void setOutput(JTextArea output) {
+		this.output = output;
+	}
+
+	/**
+	 * @return the scrollPane
+	 */
+	public JScrollPane getScrollPane() {
+		return scrollPane;
+	}
+
+	/**
+	 * @param scrollPane the scrollPane to set
+	 */
+	public void setScrollPane(JScrollPane scrollPane) {
+		this.scrollPane = scrollPane;
 	}
 
 }
