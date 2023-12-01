@@ -54,45 +54,49 @@ public class PopupMenuDemoTest {
 
 	}
 
+	/**
+	 * En este test se pretende probar que se selecciona correctamente un menú (JMenu). 
+	 * Esta  selección es un sombreado del menú (componente). Es diferente seleccionar que
+	 * hacer click.
+	 */
 	@Test
 	public void testSelectMenu() {
 		JMenuBar jMenuBar = popupMenuDemo.createMenuBar();
-		
+
 		Component[] componentes = jMenuBar.getComponents();
 		JMenu menu = null;
-		for (int i=0; i< componentes.length; i++) {
+		for (int i = 0; i < componentes.length; i++) {
 			menu = (JMenu) componentes[i];
 //			System.out.println(menu.getText());
 			// Crea un nuevo evento de selección para el menú
-		    MenuElement[] path = { jMenuBar, menu };
-		    MenuSelectionManager.defaultManager().setSelectedPath(path);
+			MenuElement[] path = { jMenuBar, menu };
+			MenuSelectionManager.defaultManager().setSelectedPath(path);
 
-		    // Realiza las verificaciones necesarias después del clic en el menú
-		    assertTrue(menu.isSelected());
+			// Realiza las verificaciones necesarias después del clic en el menú
+			assertTrue(menu.isSelected());
 		}
 	}
 
+	/**
+	 * En este test se pretende probar que se hace click correctamente en un menú (JMenu). 
+	 * Al hacer click en el menú, este debe abrirse.
+	 * Se debe comprobar que efectivamente se abre el menú..
+	 */
 	@Test
 	public void testClickMenuItem() {
-		JMenuBar jMenuBar = popupMenuDemo.createMenuBar();
-		Component[] componentes = jMenuBar.getComponents();
-		JMenu menu = null;
-		for (int i=0; i< componentes.length; i++) {
-			menu = (JMenu) componentes[i];
-//			System.out.println(menu.getText());
-			// Crea un nuevo evento de selección para el menú
-		    MenuElement[] path = { jMenuBar, menu };
-		    MenuSelectionManager.defaultManager().setSelectedPath(path);
-
-		    // Realiza las verificaciones necesarias después del clic en el menú
-		    assertTrue(menu.isSelected());
-		}
-		
+		// TODO
 	}
 
+	
+	/**
+	 * Este test pretende probar, cuando el cursor está por encima de un submenú (un JMenu dentro de otro JMenu), el submenú se abre correctamente.
+	 * Se debe simular que colocas el cursor encima del componente.
+	 * Se debe comprobar que el menú está desplegado.
+	 */
 	@Test
 	public void testHoverSubmenu() {
-
+		// TODO
+		
 	}
 
 }

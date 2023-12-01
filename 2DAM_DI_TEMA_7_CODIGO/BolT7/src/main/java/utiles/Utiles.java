@@ -1,6 +1,7 @@
 package utiles;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.FontFormatException;
@@ -243,7 +244,11 @@ public class Utiles extends JComponent {
 
 		// Crea un nuevo evento de selección para el menú
 		MenuElement[] path = { jMenuBar, menu };
-		System.out.println(String.format("%s%s%s", "pruebaClickMenu: ", "path: ", path));
+		for(int i=0; i< path.length; i++) {
+			Component componente = (Component) path[i];
+			System.out.println(String.format("%s%s%s", "pruebaClickMenu: ", "path: ", componente.getClass()));	
+		}
+		
 
 		MenuSelectionManager defaultMenuSelection = MenuSelectionManager.defaultManager();
 		defaultMenuSelection.setSelectedPath(path);
