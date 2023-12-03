@@ -34,4 +34,5 @@
     <fullyQualifiedTypeName name="java.net.URL"/>
     <fullyQualifiedTypeName name="org.junit.jupiter.api.DisplayName"/>
     <fullyQualifiedTypeName name="utiles.Utiles"/>
+    <fullyQualifiedTypeName name="javax.swing.MenuSelectionManager"/>
 </qualifiedTypeNameHistroy>

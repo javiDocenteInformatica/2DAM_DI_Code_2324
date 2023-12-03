@@ -8,6 +8,10 @@
 
 > Añadir ventanas de diálogo (JOptionPane por ejemplo) para mejorar la claridad de la aplicación.
 
+> Añadir tabulaciones para recorrer los campos en un orden concreto (para no tener que estar usando el ratón)
+
+> Añadir que la tecla "Enter" se comporte como un "Click"C
+
 ---------------------------------
 
 Para realizar pruebas de usabilidad de la aplicación, seguiremos los pasos básicos que generalmente se realizan en el desarrollo de software. 
