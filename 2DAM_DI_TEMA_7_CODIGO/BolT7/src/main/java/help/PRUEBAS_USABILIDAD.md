@@ -12,6 +12,9 @@
 
 > Añadir que la tecla "Enter" se comporte como un "Click"C
 
+> Gestión de diferentes usuarios de acceso (para controlar permisos) (para ello también se pueden llevar a cabo test JUnit para verificar que un usuario ve sólo ciertas opciones y no otras)
+
+> Recordar diferentes datos (como hacen las Cookies).
 ---------------------------------
 
 Para realizar pruebas de usabilidad de la aplicación, seguiremos los pasos básicos que generalmente se realizan en el desarrollo de software. 
