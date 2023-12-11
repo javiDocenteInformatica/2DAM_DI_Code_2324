@@ -35,4 +35,5 @@
     <fullyQualifiedTypeName name="org.junit.jupiter.api.DisplayName"/>
     <fullyQualifiedTypeName name="utiles.Utiles"/>
     <fullyQualifiedTypeName name="javax.swing.MenuSelectionManager"/>
+    <fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
 </qualifiedTypeNameHistroy>
