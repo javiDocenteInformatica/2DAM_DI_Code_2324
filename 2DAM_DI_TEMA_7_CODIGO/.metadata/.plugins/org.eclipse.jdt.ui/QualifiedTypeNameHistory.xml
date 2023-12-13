@@ -7,7 +7,6 @@
     <fullyQualifiedTypeName name="vista.PopupMenuDemo"/>
     <fullyQualifiedTypeName name="java.awt.FontFormatException"/>
     <fullyQualifiedTypeName name="java.io.IOException"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="controlador.PopupMouseAdapter"/>
     <fullyQualifiedTypeName name="java.awt.Color"/>
     <fullyQualifiedTypeName name="java.awt.event.MouseListener"/>
@@ -36,4 +35,5 @@
     <fullyQualifiedTypeName name="utiles.Utiles"/>
     <fullyQualifiedTypeName name="javax.swing.MenuSelectionManager"/>
     <fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>
