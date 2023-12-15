@@ -52,6 +52,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.KeyStroke;
 
+import controlador.JMenuItem2Controlador;
 import controlador.PopupMenuContextEventsManager;
 import controlador.PopupMenuEventsManager;
 import controlador.PopupMenuItemEventsManager;
@@ -106,7 +107,7 @@ public class PopupMenuDemo {
 		menuItem1 = new JMenuItem("Un elemento de menú solo con texto", KeyEvent.VK_T);
 
 		// Se crea un icono con la ayuda de un método de utilidad.
-		ImageIcon icon = Utiles.createImageIcon("../assets/middle.gif");
+		ImageIcon icon = Utiles.createImageIcon("../assets/img/middle.gif");
 
 		// También se puede crear un JMenuItem con texto e icono.
 		menuItem2 = new JMenuItem("Texto e icono", icon);
@@ -133,7 +134,7 @@ public class PopupMenuDemo {
 		menu2 = new JMenu("Otro Menú");
 
 		// Se crea un elemento de menú con etiqueta "Ver tabla".
-		menu2Item1 = new JMenuItem2(21, Utiles.TEXT_menu2Item1);
+		menu2Item1 = new JMenuItem2(21, Utiles.TEXT_MENU2_ITEM1);
 
 		// Se crea el menú emergente.
 		popup = new JPopupMenu();
@@ -320,6 +321,8 @@ public class PopupMenuDemo {
 		menu2.setMnemonic(KeyEvent.VK_N);
 		menu2.getAccessibleContext().setAccessibleDescription("This menu does nothing");
 
+		//cbMenuItem1.addItemListener(new PopupMenuItemEventsManager(output));
+		menu2Item1.addActionListener(new JMenuItem2Controlador());
 		menu2.add(menu2Item1);
 
 		menuBar.add(menu2);
@@ -702,6 +705,20 @@ public class PopupMenuDemo {
 	 */
 	public void setScrollPane(JScrollPane scrollPane) {
 		this.scrollPane = scrollPane;
+	}
+
+	/**
+	 * @return the menu2Item1
+	 */
+	public JMenuItem getMenu2Item1() {
+		return menu2Item1;
+	}
+
+	/**
+	 * @param menu2Item1 the menu2Item1 to set
+	 */
+	public void setMenu2Item1(JMenuItem menu2Item1) {
+		this.menu2Item1 = menu2Item1;
 	}
 
 }

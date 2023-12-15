@@ -55,7 +55,13 @@ public class Utiles extends JComponent {
 	public static final String ANSI_GREEN = "\u001B[32m";
 	
 	// TEXTOS JMenuItem
-	public static final String TEXT_menu2Item1 = "Ver Tabla";
+	public static final String TEXT_MENU2_ITEM1 = "Ver Tabla";
+	
+	// TEXTOS JFrame
+	public static final String TITULO_VENTANA_USUARIOS = "Usuarios de la BBDD";
+	
+	// TEXTOS JPanel
+	
 
 	/**
 	 * Obtiene el nombre de la clase de un objeto.
