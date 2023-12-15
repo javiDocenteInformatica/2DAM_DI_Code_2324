@@ -70,6 +70,7 @@ public class PopupMenuDemo {
 	private JMenuBar menuBar;
 	private JMenu menu1, menu2, submenu;
 	private JMenuItem menuItem1, menuItem2, menuItem3, menuItem4, menuItem5;
+	private JMenuItem menu2Item1;
 	private JRadioButtonMenuItem rbMenuItem1, rbMenuItem2;
 	private JCheckBoxMenuItem cbMenuItem1, cbMenuItem2;
 
@@ -130,6 +131,9 @@ public class PopupMenuDemo {
 
 		// Se construye el segundo menú en la barra de menú.
 		menu2 = new JMenu("Otro Menú");
+
+		// Se crea un elemento de menú con etiqueta "Ver tabla".
+		menu2Item1 = new JMenuItem2(21, Utiles.TEXT_menu2Item1);
 
 		// Se crea el menú emergente.
 		popup = new JPopupMenu();
@@ -209,11 +213,9 @@ public class PopupMenuDemo {
 
 		Utiles.toolTip(menuItem2Contextual, "Elemento de menú contextual 2.");
 
-		
 		// probando click en MENU
 		Utiles.pruebaSelectMenu(this);
-		
-		
+
 	}
 
 	public Container createContentPane() {
@@ -317,6 +319,9 @@ public class PopupMenuDemo {
 //		menu2 = new JMenu("Another Menu");
 		menu2.setMnemonic(KeyEvent.VK_N);
 		menu2.getAccessibleContext().setAccessibleDescription("This menu does nothing");
+
+		menu2.add(menu2Item1);
+
 		menuBar.add(menu2);
 
 		/**

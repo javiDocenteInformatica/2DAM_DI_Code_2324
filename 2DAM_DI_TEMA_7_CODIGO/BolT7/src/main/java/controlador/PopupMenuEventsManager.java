@@ -60,6 +60,9 @@ public class PopupMenuEventsManager extends WindowAdapter implements ActionListe
 		if (result == JOptionPane.YES_OPTION) {
 			// Si el usuario elige "Sí", cerrar la ventana
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		}else {
+			// Si el usuario elige "No", simplemente ignora el evento de cierre de la ventana
+	        frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		}
 	}
 

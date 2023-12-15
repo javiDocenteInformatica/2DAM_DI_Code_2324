@@ -53,6 +53,9 @@ public class Utiles extends JComponent {
 	// COLORES CONSOLA
 	public static final String ANSI_RED = "\u001B[31m";
 	public static final String ANSI_GREEN = "\u001B[32m";
+	
+	// TEXTOS JMenuItem
+	public static final String TEXT_menu2Item1 = "Ver Tabla";
 
 	/**
 	 * Obtiene el nombre de la clase de un objeto.
@@ -258,5 +261,6 @@ public class Utiles extends JComponent {
 		defaultMenuSelection.setSelectedPath(path);
 //			    System.out.println(String.format("%s%s%s", "pruebaClickMenu: ", "path: " , defaultMenuSelection.isComponentPartOfCurrentMenu(menu)));
 	}
+	
 
 }
