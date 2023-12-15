@@ -19,6 +19,7 @@ public class JMenuItem2Controlador implements ActionListener {
 		case 21:
 			VentanaTablaUsuarios ventanaTablaUsuarios = new VentanaTablaUsuarios();
 			ventanaTablaUsuarios.setVisible(true);
+                        
 			break;
 		default:
 			JOptionPane.showMessageDialog(item,
