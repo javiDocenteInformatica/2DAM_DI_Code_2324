@@ -14,7 +14,7 @@ public class VentanaTablaUsuarios extends JDialog {
 
     private static final long serialVersionUID = 1L;
     private JPanel panelTablaUsuarios;
-    private JScrollPane scrollPane;
+
 
     /**
      * Create the frame.
@@ -26,12 +26,13 @@ public class VentanaTablaUsuarios extends JDialog {
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setBounds(100, 100, 450, 300);
 
+        
         panelTablaUsuarios = new PanelTablaUsuarios();
         panelTablaUsuarios.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 //        JTable tablaUsuarios = panelTablaUsuarios.getTablaUsuarios();
         
-        scrollPane = new JScrollPane(panelTablaUsuarios);
+        
 //        scrollPane.add();
 
 //        this.add(scrollPane);

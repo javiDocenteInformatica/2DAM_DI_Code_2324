@@ -17,17 +17,21 @@ public class PanelTablaUsuarios extends JPanel {
 
     private static final long serialVersionUID = 1L;
 
-   
     private JTable tablaUsuarios;
     private TableModel cuadricula;
     private final int numColumns = 4;
     private String[] nombreColumnas;
     private Object[][] datosFila;
 
+    private JScrollPane scrollPane;
+
     /**
      * Create the panel.
      */
     public PanelTablaUsuarios() {
+
+        scrollPane = new JScrollPane(this.tablaUsuarios);
+//        scrollPane.setViewportView(this.tablaUsuarios);
 
         this.setLayout(new BorderLayout());
 
@@ -58,6 +62,8 @@ public class PanelTablaUsuarios extends JPanel {
 
         tablaUsuarios = new JTable(cuadricula);
 
+        scrollPane.add(tablaUsuarios);
+
         // Se le da un color por defecto, pero se cambiará
         // Esto se hace por si falla la decodificación del color en HEX
         Color colorLineaBordeTabla = new Color(0, 0, 0);
@@ -80,7 +86,7 @@ public class PanelTablaUsuarios extends JPanel {
 
     }
 
-     public JTable getTablaUsuarios() {
+    public JTable getTablaUsuarios() {
         return tablaUsuarios;
     }
 
