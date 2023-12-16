@@ -107,7 +107,7 @@ public class PopupMenuDemo {
 		menuItem1 = new JMenuItem("Un elemento de menú solo con texto", KeyEvent.VK_T);
 
 		// Se crea un icono con la ayuda de un método de utilidad.
-		ImageIcon icon = Utiles.createImageIcon("../assets/img/middle.gif");
+		ImageIcon icon = Utiles.createImageIcon(this,"/img/middle.gif");
 
 		// También se puede crear un JMenuItem con texto e icono.
 		menuItem2 = new JMenuItem("Texto e icono", icon);

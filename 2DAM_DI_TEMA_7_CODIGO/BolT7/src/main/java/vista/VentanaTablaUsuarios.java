@@ -29,12 +29,12 @@ public class VentanaTablaUsuarios extends JDialog {
         panelTablaUsuarios = new PanelTablaUsuarios();
         panelTablaUsuarios.setBorder(new EmptyBorder(5, 5, 5, 5));
 
-        JTable tablaUsuarios = panelTablaUsuarios.getTablaUsuarios();
+//        JTable tablaUsuarios = panelTablaUsuarios.getTablaUsuarios();
         
-        scrollPane = new JScrollPane(tablaUsuarios);
+        scrollPane = new JScrollPane(panelTablaUsuarios);
 //        scrollPane.add();
 
-        this.add(scrollPane);
+//        this.add(scrollPane);
         
         this.setContentPane(panelTablaUsuarios);
 

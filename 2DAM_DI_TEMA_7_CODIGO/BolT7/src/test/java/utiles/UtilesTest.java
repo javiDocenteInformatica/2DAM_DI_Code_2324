@@ -22,6 +22,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -132,7 +133,7 @@ class UtilesTest {
 		String rutaImagen = String.format("%s%s%s%s%s", "..", separadorRuta, "assets", separadorRuta, "middle.gif");
 
 		// Acción
-		ImageIcon icono = Utiles.createImageIcon(rutaImagen);
+		ImageIcon icono = Utiles.createImageIcon(Utiles.class,rutaImagen);
 
 		// Verificación
 		assertNotNull(icono);

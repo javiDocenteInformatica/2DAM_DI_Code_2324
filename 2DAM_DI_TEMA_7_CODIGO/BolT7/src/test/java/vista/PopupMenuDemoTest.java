@@ -28,19 +28,19 @@ import org.junit.jupiter.api.Test;
 //@TestInstance(TestInstance.Lifecycle.PER_METHOD)
 public class PopupMenuDemoTest {
 
-	private PopupMenuDemo popupMenuDemo;
+	private PopupMenuDemo popupMenuDemo = new PopupMenuDemo();
 
 	// Este método se ejecuta antes de cada método de prueba.
 	@BeforeEach
 	public void setUp() {
-		popupMenuDemo = new PopupMenuDemo();
+//		popupMenuDemo = new PopupMenuDemo();
 
 	}
 
 	// Este método se ejecuta después de cada método de prueba.
 	@AfterEach
 	public void tearDown() {
-		popupMenuDemo = null;
+//		popupMenuDemo = null;
 	}
 
 	// Prueba para verificar la creación del menú bar.
