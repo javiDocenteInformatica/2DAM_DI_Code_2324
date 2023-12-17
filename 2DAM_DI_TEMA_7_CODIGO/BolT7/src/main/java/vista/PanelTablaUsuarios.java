@@ -9,6 +9,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.LineBorder;
 import javax.swing.table.AbstractTableModel;
+import javax.swing.table.JTableHeader;
 import javax.swing.table.TableModel;
 
 import utiles.Utiles;
@@ -29,9 +30,6 @@ public class PanelTablaUsuarios extends JPanel {
      * Create the panel.
      */
     public PanelTablaUsuarios() {
-
-        scrollPane = new JScrollPane(this.tablaUsuarios);
-//        scrollPane.setViewportView(this.tablaUsuarios);
 
         this.setLayout(new BorderLayout());
 
@@ -62,8 +60,6 @@ public class PanelTablaUsuarios extends JPanel {
 
         tablaUsuarios = new JTable(cuadricula);
 
-        scrollPane.add(tablaUsuarios);
-
         // Se le da un color por defecto, pero se cambiará
         // Esto se hace por si falla la decodificación del color en HEX
         Color colorLineaBordeTabla = new Color(0, 0, 0);
@@ -82,7 +78,12 @@ public class PanelTablaUsuarios extends JPanel {
         tablaUsuarios.setBorder(new LineBorder(colorLineaBordeTabla));
         tablaUsuarios.setBackground(colorBackgroundTabla);
 
-        this.add(tablaUsuarios, BorderLayout.CENTER);
+        // Añadir COMPONENTES al PANEL        
+        scrollPane = new JScrollPane(this.tablaUsuarios);
+        this.tablaUsuarios.setFillsViewportHeight(true);
+//        this.tablaUsuarios.setTableHeader(new JTableHeader());
+        this.add(scrollPane, BorderLayout.CENTER);
+        this.add(this.tablaUsuarios.getTableHeader(), BorderLayout.PAGE_START);
 
     }
 
