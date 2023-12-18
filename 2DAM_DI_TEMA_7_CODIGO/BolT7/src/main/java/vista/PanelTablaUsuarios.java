@@ -11,6 +11,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableModel;
+import modelo.ConexionDB;
 
 import utiles.Utiles;
 
@@ -83,6 +84,9 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
 //        this.tablaUsuarios.setTableHeader(new JTableHeader());
         this.add(scrollPane, BorderLayout.CENTER);
         this.add(this.tablaUsuarios.getTableHeader(), BorderLayout.PAGE_START);
+        
+        // CONEXIÓN A LA DB
+         ConexionDB.conectarFirebase();
     }
 
     public JTable getTablaUsuarios() {
