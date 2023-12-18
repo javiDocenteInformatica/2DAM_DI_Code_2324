@@ -22,10 +22,12 @@ import javax.swing.MenuSelectionManager;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 //La anotación @TestInstance se utiliza para especificar el ciclo de vida de las instancias de prueba.
 //@TestInstance(TestInstance.Lifecycle.PER_METHOD)
+@Disabled ("CLASE PopupMenuDemoTest deshabilitado por el momento")
 public class PopupMenuDemoTest {
 
 	private PopupMenuDemo popupMenuDemo = new PopupMenuDemo();

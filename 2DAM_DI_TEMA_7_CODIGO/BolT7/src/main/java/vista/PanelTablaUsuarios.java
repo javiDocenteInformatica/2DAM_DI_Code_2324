@@ -31,14 +31,18 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
      * Creates new form PanelTablaUsuarios
      */
     public PanelTablaUsuarios() {
+
         this.setLayout(new BorderLayout());
 
-        nombreColumnas = new String[]{"Apellido1", "Apellido2", "Nombre", "Fecha de Nacimiento"};
+        // CONEXIÓN A LA DB
+        ConexionDB.conectar();
+
+        nombreColumnas = new String[]{"ID", "Apellido1", "Apellido2", "Nombre", "Fecha de Nacimiento"};
 
         datosFila = new Object[][]{
-            {"Carrillo", "Salcedo", "Antonio", LocalDate.of(1995, Month.NOVEMBER, 12)},
-            {"López", "Arena", "Daniel", LocalDate.of(2002, Month.MARCH, 1)},
-            {"Martínez", "Ropero", "Agueda", LocalDate.of(2010, Month.FEBRUARY, 28)},};
+            {"1", "Carrillo", "Salcedo", "Antonio", LocalDate.of(1995, Month.NOVEMBER, 12)},
+            {"2", "López", "Arena", "Daniel", LocalDate.of(2002, Month.MARCH, 1)},
+            {"3", "Martínez", "Ropero", "Agueda", LocalDate.of(2010, Month.FEBRUARY, 28)},};
 
         cuadricula = new AbstractTableModel() {
 
@@ -84,9 +88,7 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
 //        this.tablaUsuarios.setTableHeader(new JTableHeader());
         this.add(scrollPane, BorderLayout.CENTER);
         this.add(this.tablaUsuarios.getTableHeader(), BorderLayout.PAGE_START);
-        
-        // CONEXIÓN A LA DB
-         ConexionDB.conectarFirebase();
+
     }
 
     public JTable getTablaUsuarios() {

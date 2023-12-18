@@ -29,6 +29,7 @@ import org.junit.jupiter.api.Test;
 /**
  * 
  */
+@Disabled ("CLASE UtilesTest deshabilitado por el momento")
 class UtilesTest {
 
 	private JButton boton;

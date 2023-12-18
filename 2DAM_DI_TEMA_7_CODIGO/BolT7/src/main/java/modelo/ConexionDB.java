@@ -4,17 +4,11 @@
  */
 package modelo;
 
-import com.google.auth.oauth2.GoogleCredentials;
-import com.google.cloud.firestore.Firestore;
-
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.FirebaseOptions;
-import com.google.firebase.cloud.FirestoreClient;
-
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import utiles.Utiles;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -22,23 +16,25 @@ import utiles.Utiles;
  */
 public class ConexionDB {
 
-    public static Firestore db;
+    private static Connection conexion = null;
 
-    public static void conectarFirebase() {
+    public static void conectar() {
         try {
-            // Use a service account
-            InputStream serviceAccount = new FileInputStream("serviceAccount.json");
-            GoogleCredentials credentials = GoogleCredentials.fromStream(serviceAccount);
-            FirebaseOptions options = new FirebaseOptions.Builder().setCredentials(credentials).build();
-            FirebaseApp.initializeApp(options);
-
-            db = FirestoreClient.getFirestore();
-            System.out.println(Utiles.ANSI_GREEN+"modelo.ConexionBD.conectarFirebase(): ÉXITO AL CONECTAR A LA DB!!");
-        } catch (IOException e) {
-            System.err.println(Utiles.ANSI_RED+ "modelo.ConexionBD.conectarFirebase(): Error al conectar a la base de datos");
-            System.err.println(Utiles.ANSI_RED+"Error: " + e.getMessage());
+            Class.forName("org.sqlite.JDBC");
+            conexion = DriverManager.getConnection("jdbc:sqlite:db.sqlite");
+            System.out.println("EXITO EN LA CONEXIÓN A DB!!");
+        } catch (ClassNotFoundException | SQLException ex) {
+            System.err.println("Error: " + ex.getMessage());
         }
 
+    }
+    
+    public static void desconectar(){
+        try {
+            conexion.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, "Excepción al cerrar la base de datos", ex);
+        }
     }
 
 }
