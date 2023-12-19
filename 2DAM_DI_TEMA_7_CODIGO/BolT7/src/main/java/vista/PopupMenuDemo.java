@@ -152,6 +152,9 @@ public class PopupMenuDemo {
 
 		// Centrar el Frame en pantalla
 		Utiles.centrarEnPantalla(frame);
+                
+                // Que no se pueda redimensionar
+                frame.setResizable(false);
 
 		// Create/set menu bar and content pane.
 		frame.setContentPane(this.createContentPane());

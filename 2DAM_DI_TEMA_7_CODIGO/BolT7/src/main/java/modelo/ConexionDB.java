@@ -16,9 +16,17 @@ import java.util.logging.Logger;
  */
 public class ConexionDB {
 
-    private static Connection conexion = null;
+    private Connection conexion;
 
-    public static void conectar() {
+    public ConexionDB() {
+        conexion = null;
+    }
+
+    /**
+     *
+     * @return Connection
+     */
+    public Connection conectar() {
         try {
             Class.forName("org.sqlite.JDBC");
             conexion = DriverManager.getConnection("jdbc:sqlite:db.sqlite");
@@ -27,14 +35,24 @@ public class ConexionDB {
             System.err.println("Error: " + ex.getMessage());
         }
 
+        return conexion;
     }
-    
-    public static void desconectar(){
+
+    public void desconectar() {
         try {
             conexion.close();
         } catch (SQLException ex) {
             Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, "Excepción al cerrar la base de datos", ex);
         }
+    }
+
+    // GETTERS Y SETTERS
+    public Connection getConexion() {
+        return conexion;
+    }
+
+    public void setConexion(Connection conexion) {
+        this.conexion = conexion;
     }
 
 }
