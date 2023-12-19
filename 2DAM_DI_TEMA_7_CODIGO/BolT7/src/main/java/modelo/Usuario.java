@@ -23,6 +23,14 @@ public class Usuario {
         
     }
     
+    public Usuario(String apellido1, String apellido2, String nombre, LocalDate fechaNacimiento) {
+//        this.id = 1;
+        this.apellido1 = apellido1;
+        this.apellido2 = apellido2;
+        this.nombre = nombre;
+        this.fechaNacimiento = fechaNacimiento;
+    }
+    
     public Usuario(Integer id, String apellido1, String apellido2, String nombre, LocalDate fechaNacimiento) {
         this.id = id;
         this.apellido1 = apellido1;
@@ -31,12 +39,7 @@ public class Usuario {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    
-    
-    
-    
-    
-    
+      
     
     
     // GETTERS Y SETTERS
@@ -79,5 +82,14 @@ public class Usuario {
     public void setFechaNacimiento(LocalDate fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
+
+    
+    // TO STRING
+    @Override
+    public String toString() {
+        return "Usuario{" + "id=" + id + ", apellido1=" + apellido1 + ", apellido2=" + apellido2 + ", nombre=" + nombre + ", fechaNacimiento=" + fechaNacimiento + '}';
+    }
+    
+    
     
 }

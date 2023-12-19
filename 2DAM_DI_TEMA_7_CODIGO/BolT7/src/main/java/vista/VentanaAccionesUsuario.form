@@ -113,7 +113,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabelApellido1" alignment="0" max="32767" attributes="0"/>
@@ -127,6 +127,7 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jLabelFormatoFecha" max="32767" attributes="0"/>
                       <Component id="jTextFieldNombre" alignment="0" max="32767" attributes="0"/>
                       <Component id="jTextFieldApellido1" alignment="0" max="32767" attributes="0"/>
                       <Component id="jTextFieldApellido2" alignment="0" max="32767" attributes="0"/>
@@ -168,7 +169,9 @@
                       <Component id="jLabelFechaNacimiento" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jTextFieldFechaNacimiento" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="94" max="32767" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="jLabelFormatoFecha" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="66" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -206,27 +209,20 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldID">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField1"/>
+            <Property name="editable" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldApellido1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField2"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldApellido2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField3"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldNombre">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField4"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldFechaNacimiento">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelFormatoFecha">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField5"/>
+            <Property name="text" type="java.lang.String" value="Formato de fecha: 2023-12-19"/>
           </Properties>
         </Component>
       </SubComponents>

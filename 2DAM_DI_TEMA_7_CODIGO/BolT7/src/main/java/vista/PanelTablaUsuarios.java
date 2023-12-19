@@ -1,17 +1,22 @@
 package vista;
 
+import dao.DaoUsuario;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.sql.Connection;
 import java.time.*;
+import java.util.ArrayList;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.LineBorder;
 import javax.swing.table.AbstractTableModel;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableModel;
 import modelo.DB;
+import modelo.Usuario;
 
 import utiles.Utiles;
 
@@ -20,10 +25,10 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
     private static final long serialVersionUID = 1L;
 
     private JTable tablaUsuarios;
-    private TableModel cuadricula;
-    private final int numColumns = 4;
+    private DefaultTableModel cuadricula;
+    private int numColumns;
     private String[] nombreColumnas;
-    private Object[][] datosFila;
+    private ArrayList<Usuario> listaUsuarios;
 
     private JScrollPane scrollPane;
 
@@ -34,37 +39,10 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
 
         this.setLayout(new BorderLayout());
 
-        // CONEXIÓN A LA DB
-        DB db = new DB();
-        db.conectar();
+        this.cuadricula = new DefaultTableModel();        
+        this.tablaUsuarios = new JTable(cuadricula);
 
-        nombreColumnas = new String[]{"ID", "Apellido1", "Apellido2", "Nombre", "Fecha de Nacimiento"};
-
-        datosFila = new Object[][]{
-            {"1", "Carrillo", "Salcedo", "Antonio", LocalDate.of(1995, Month.NOVEMBER, 12)},
-            {"2", "López", "Arena", "Daniel", LocalDate.of(2002, Month.MARCH, 1)},
-            {"3", "Martínez", "Ropero", "Agueda", LocalDate.of(2010, Month.FEBRUARY, 28)},};
-
-        cuadricula = new AbstractTableModel() {
-
-            @Override
-            public Object getValueAt(int rowIndex, int columnIndex) {
-                return getDatosFila()[rowIndex][columnIndex];
-            }
-
-            @Override
-            public int getRowCount() {
-                return getDatosFila().length;
-            }
-
-            @Override
-            public int getColumnCount() {
-                return getNombreColumnas().length;
-            }
-        };
-
-        tablaUsuarios = new JTable(cuadricula);
-
+        // Personalización de JTable //
         // Se le da un color por defecto, pero se cambiará
         // Esto se hace por si falla la decodificación del color en HEX
         Color colorLineaBordeTabla = new Color(0, 0, 0);
@@ -80,8 +58,8 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
 
         }
 
-        tablaUsuarios.setBorder(new LineBorder(colorLineaBordeTabla));
-        tablaUsuarios.setBackground(colorBackgroundTabla);
+        this.tablaUsuarios.setBorder(new LineBorder(colorLineaBordeTabla));
+        this.tablaUsuarios.setBackground(colorBackgroundTabla);
 
         // Añadir COMPONENTES al PANEL        
         scrollPane = new JScrollPane(this.tablaUsuarios);
@@ -90,38 +68,49 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
         this.add(scrollPane, BorderLayout.CENTER);
         this.add(this.tablaUsuarios.getTableHeader(), BorderLayout.PAGE_START);
 
+        //////////////////////////////////////////
+        // Añadimos los datos a la tabla
+        actualizaTabla(tablaUsuarios);
+
     }
 
-    public JTable getTablaUsuarios() {
-        return tablaUsuarios;
-    }
+    public void actualizaTabla(JTable tablaUsuarios) {
 
-    public void setTablaUsuarios(JTable tablaUsuarios) {
-        this.tablaUsuarios = tablaUsuarios;
-    }
+        // Clase que nos gestiona los métodos para comunicarnos con la BD
+        DaoUsuario daoUsuario = new DaoUsuario();
 
-    public TableModel getCuadricula() {
-        return cuadricula;
-    }
+        nombreColumnas = new String[]{"ID",
+            "Apellido1", "Apellido2",
+            "Nombre", "Fecha de Nacimiento"};
 
-    public void setCuadricula(TableModel cuadricula) {
-        this.cuadricula = cuadricula;
-    }
+        cuadricula.addColumn(nombreColumnas[0]);
+        cuadricula.addColumn(nombreColumnas[1]);
+        cuadricula.addColumn(nombreColumnas[2]);
+        cuadricula.addColumn(nombreColumnas[3]);
+        cuadricula.addColumn(nombreColumnas[4]);
 
-    public String[] getNombreColumnas() {
-        return nombreColumnas;
-    }
+        numColumns = nombreColumnas.length;
 
-    public void setNombreColumnas(String[] nombreColumnas) {
-        this.nombreColumnas = nombreColumnas;
-    }
+        // Limpiamos la tabla antes de añadir los datos de la BD
+        while (cuadricula.getRowCount() > 0) {
+            cuadricula.removeRow(0);
+        }
 
-    public Object[][] getDatosFila() {
-        return datosFila;
-    }
+        listaUsuarios = daoUsuario.leerUsuarios();
+        for (Usuario u : listaUsuarios) {
 
-    public void setDatosFila(Object[][] datosFila) {
-        this.datosFila = datosFila;
+            Object datosFila[] = new Object[numColumns];
+
+            datosFila[0] = u.getId();
+            datosFila[1] = u.getApellido1();
+            datosFila[2] = u.getApellido2();
+            datosFila[3] = u.getNombre();
+            datosFila[4] = u.getFechaNacimiento();
+
+            cuadricula.addRow(datosFila);
+        }
+
+        tablaUsuarios.setModel(cuadricula);
     }
 
     /**

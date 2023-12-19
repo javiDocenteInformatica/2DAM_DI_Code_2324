@@ -10,3 +10,5 @@ CREATE TABLE usuarios(
 	PRIMARY KEY (ID AUTOINCREMENT)
 
 );
+
+tables;

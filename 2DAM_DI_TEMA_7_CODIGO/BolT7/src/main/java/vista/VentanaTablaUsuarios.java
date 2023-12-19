@@ -27,10 +27,10 @@ public class VentanaTablaUsuarios extends javax.swing.JDialog {
         this.setTitle(Utiles.TITULO_VENTANA_USUARIOS);
 
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        this.setBounds(100, 100, 450, 300);
+        this.setBounds(100, 100, 650, 300);
 
-        // Que no se pueda redimensionar
-        this.setResizable(false);
+        // Propiedad para redimensionar
+        this.setResizable(true);
 
         panelTablaUsuarios = new PanelTablaUsuarios();
         panelTablaUsuarios.setBorder(new EmptyBorder(5, 5, 5, 5));

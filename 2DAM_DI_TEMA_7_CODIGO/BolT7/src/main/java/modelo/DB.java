@@ -6,6 +6,7 @@ package modelo;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,11 +19,15 @@ public class DB {
 
     private Connection conexion;
     private static String DRIVER = "org.sqlite.JDBC";
-    private static String URL_CONNECTION = "jdbc:sqlite:db.sqlite";
+    private static String URL_CONNECTION = "jdbc:sqlite:"
+            +"D:\\2DAM_DI_Code_2324\\2DAM_DI_TEMA_7_CODIGO"
+            + "\\BolT7\\src\\main\\java\\modelo\\" 
+            + "db.sqlite";
 
     public DB() {
         conexion = null;
     }
+    
 
     /**
      *

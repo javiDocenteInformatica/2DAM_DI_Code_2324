@@ -4,6 +4,15 @@
  */
 package vista;
 
+import controlador.VentanaAccionesUsuarioControlador;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
 /**
  *
  * @author profesor
@@ -16,6 +25,7 @@ public class VentanaAccionesUsuario extends javax.swing.JFrame {
     public VentanaAccionesUsuario() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         
     }
 
@@ -39,6 +49,7 @@ public class VentanaAccionesUsuario extends javax.swing.JFrame {
         jTextFieldApellido2 = new javax.swing.JTextField();
         jTextFieldNombre = new javax.swing.JTextField();
         jTextFieldFechaNacimiento = new javax.swing.JTextField();
+        jLabelFormatoFecha = new javax.swing.JLabel();
         jMenuBarUsuario = new javax.swing.JMenuBar();
         jMenuAcciones = new javax.swing.JMenu();
         jMenuItemCrear = new javax.swing.JMenuItem();
@@ -65,15 +76,9 @@ public class VentanaAccionesUsuario extends javax.swing.JFrame {
         jLabelFechaNacimiento.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelFechaNacimiento.setText("Fecha Nacimiento");
 
-        jTextFieldID.setText("jTextField1");
+        jTextFieldID.setEditable(false);
 
-        jTextFieldApellido1.setText("jTextField2");
-
-        jTextFieldApellido2.setText("jTextField3");
-
-        jTextFieldNombre.setText("jTextField4");
-
-        jTextFieldFechaNacimiento.setText("jTextField5");
+        jLabelFormatoFecha.setText("Formato de fecha: 2023-12-19");
 
         javax.swing.GroupLayout jPanelAccionesUsuarioLayout = new javax.swing.GroupLayout(jPanelAccionesUsuario);
         jPanelAccionesUsuario.setLayout(jPanelAccionesUsuarioLayout);
@@ -91,6 +96,7 @@ public class VentanaAccionesUsuario extends javax.swing.JFrame {
                     .addComponent(jLabelNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelAccionesUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelFormatoFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jTextFieldNombre)
                     .addComponent(jTextFieldApellido1)
                     .addComponent(jTextFieldApellido2)
@@ -123,7 +129,9 @@ public class VentanaAccionesUsuario extends javax.swing.JFrame {
                 .addGroup(jPanelAccionesUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelFechaNacimiento)
                     .addComponent(jTextFieldFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelFormatoFecha)
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         jMenuAcciones.setText("Acciones");
@@ -188,10 +196,21 @@ public class VentanaAccionesUsuario extends javax.swing.JFrame {
 
     private void jMenuItemCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCrearActionPerformed
         // TODO add your handling code here:
+        VentanaAccionesUsuarioControlador controlador = new VentanaAccionesUsuarioControlador(this);
+        boolean esInsertado = controlador.insertarUsuario();
+        
+        if(esInsertado){
+            jTextFieldApellido1.setText("");
+            jTextFieldApellido2.setText("");
+            jTextFieldNombre.setText("");
+            jTextFieldFechaNacimiento.setText("");
+        }
     }//GEN-LAST:event_jMenuItemCrearActionPerformed
 
     private void jMenuItemLeerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLeerActionPerformed
         // TODO add your handling code here:
+        VentanaAccionesUsuarioControlador controlador = new VentanaAccionesUsuarioControlador(this);
+        controlador.abrirVentanaTablaUsuarios();
     }//GEN-LAST:event_jMenuItemLeerActionPerformed
 
     private void jMenuItemActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemActualizarActionPerformed
@@ -241,6 +260,7 @@ public class VentanaAccionesUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelApellido1;
     private javax.swing.JLabel jLabelApellido2;
     private javax.swing.JLabel jLabelFechaNacimiento;
+    private javax.swing.JLabel jLabelFormatoFecha;
     private javax.swing.JLabel jLabelID;
     private javax.swing.JLabel jLabelNombre;
     private javax.swing.JMenu jMenuAcciones;
@@ -256,4 +276,147 @@ public class VentanaAccionesUsuario extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldID;
     private javax.swing.JTextField jTextFieldNombre;
     // End of variables declaration//GEN-END:variables
+
+    
+    // GETTERS Y SETTERS
+    public JLabel getjLabelApellido1() {
+        return jLabelApellido1;
+    }
+
+    public void setjLabelApellido1(JLabel jLabelApellido1) {
+        this.jLabelApellido1 = jLabelApellido1;
+    }
+
+    public JLabel getjLabelApellido2() {
+        return jLabelApellido2;
+    }
+
+    public void setjLabelApellido2(JLabel jLabelApellido2) {
+        this.jLabelApellido2 = jLabelApellido2;
+    }
+
+    public JLabel getjLabelFechaNacimiento() {
+        return jLabelFechaNacimiento;
+    }
+
+    public void setjLabelFechaNacimiento(JLabel jLabelFechaNacimiento) {
+        this.jLabelFechaNacimiento = jLabelFechaNacimiento;
+    }
+
+    public JLabel getjLabelID() {
+        return jLabelID;
+    }
+
+    public void setjLabelID(JLabel jLabelID) {
+        this.jLabelID = jLabelID;
+    }
+
+    public JLabel getjLabelNombre() {
+        return jLabelNombre;
+    }
+
+    public void setjLabelNombre(JLabel jLabelNombre) {
+        this.jLabelNombre = jLabelNombre;
+    }
+
+    public JMenu getjMenuAcciones() {
+        return jMenuAcciones;
+    }
+
+    public void setjMenuAcciones(JMenu jMenuAcciones) {
+        this.jMenuAcciones = jMenuAcciones;
+    }
+
+    public JMenuBar getjMenuBarUsuario() {
+        return jMenuBarUsuario;
+    }
+
+    public void setjMenuBarUsuario(JMenuBar jMenuBarUsuario) {
+        this.jMenuBarUsuario = jMenuBarUsuario;
+    }
+
+    public JMenuItem getjMenuItemActualizar() {
+        return jMenuItemActualizar;
+    }
+
+    public void setjMenuItemActualizar(JMenuItem jMenuItemActualizar) {
+        this.jMenuItemActualizar = jMenuItemActualizar;
+    }
+
+    public JMenuItem getjMenuItemBorrar() {
+        return jMenuItemBorrar;
+    }
+
+    public void setjMenuItemBorrar(JMenuItem jMenuItemBorrar) {
+        this.jMenuItemBorrar = jMenuItemBorrar;
+    }
+
+    public JMenuItem getjMenuItemCrear() {
+        return jMenuItemCrear;
+    }
+
+    public void setjMenuItemCrear(JMenuItem jMenuItemCrear) {
+        this.jMenuItemCrear = jMenuItemCrear;
+    }
+
+    public JMenuItem getjMenuItemLeer() {
+        return jMenuItemLeer;
+    }
+
+    public void setjMenuItemLeer(JMenuItem jMenuItemLeer) {
+        this.jMenuItemLeer = jMenuItemLeer;
+    }
+
+    public JPanel getjPanelAccionesUsuario() {
+        return jPanelAccionesUsuario;
+    }
+
+    public void setjPanelAccionesUsuario(JPanel jPanelAccionesUsuario) {
+        this.jPanelAccionesUsuario = jPanelAccionesUsuario;
+    }
+
+    public JTextField getjTextFieldApellido1() {
+        return jTextFieldApellido1;
+    }
+
+    public void setjTextFieldApellido1(JTextField jTextFieldApellido1) {
+        this.jTextFieldApellido1 = jTextFieldApellido1;
+    }
+
+    public JTextField getjTextFieldApellido2() {
+        return jTextFieldApellido2;
+    }
+
+    public void setjTextFieldApellido2(JTextField jTextFieldApellido2) {
+        this.jTextFieldApellido2 = jTextFieldApellido2;
+    }
+
+    public JTextField getjTextFieldFechaNacimiento() {
+        return jTextFieldFechaNacimiento;
+    }
+
+    public void setjTextFieldFechaNacimiento(JTextField jTextFieldFechaNacimiento) {
+        this.jTextFieldFechaNacimiento = jTextFieldFechaNacimiento;
+    }
+
+    public JTextField getjTextFieldID() {
+        return jTextFieldID;
+    }
+
+    public void setjTextFieldID(JTextField jTextFieldID) {
+        this.jTextFieldID = jTextFieldID;
+    }
+
+    public JTextField getjTextFieldNombre() {
+        return jTextFieldNombre;
+    }
+
+    public void setjTextFieldNombre(JTextField jTextFieldNombre) {
+        this.jTextFieldNombre = jTextFieldNombre;
+    }
+
+
+
+
+
 }
