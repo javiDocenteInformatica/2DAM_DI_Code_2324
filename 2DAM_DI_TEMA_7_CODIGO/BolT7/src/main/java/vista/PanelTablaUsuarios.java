@@ -11,7 +11,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableModel;
-import modelo.ConexionDB;
+import modelo.DB;
 
 import utiles.Utiles;
 
@@ -35,7 +35,8 @@ public class PanelTablaUsuarios extends javax.swing.JPanel {
         this.setLayout(new BorderLayout());
 
         // CONEXIÓN A LA DB
-        ConexionDB.conectar();
+        DB db = new DB();
+        db.conectar();
 
         nombreColumnas = new String[]{"ID", "Apellido1", "Apellido2", "Nombre", "Fecha de Nacimiento"};
 

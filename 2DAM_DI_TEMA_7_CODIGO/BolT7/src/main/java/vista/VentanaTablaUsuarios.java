@@ -4,6 +4,7 @@
  */
 package vista;
 
+import controlador.VentanaTablaUsuariosControlador;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -40,6 +41,9 @@ public class VentanaTablaUsuarios extends javax.swing.JDialog {
         this.setContentPane(panelTablaUsuarios);
 
         this.setLocationRelativeTo(null);
+        
+        // Gestión de Eventos de la VentanaTablaUsuario
+        this.addWindowListener(new VentanaTablaUsuariosControlador(this));
     }
 
     /**

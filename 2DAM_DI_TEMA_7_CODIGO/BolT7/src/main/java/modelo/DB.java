@@ -14,11 +14,13 @@ import java.util.logging.Logger;
  *
  * @author profesor
  */
-public class ConexionDB {
+public class DB {
 
     private Connection conexion;
+    private static String DRIVER = "org.sqlite.JDBC";
+    private static String URL_CONNECTION = "jdbc:sqlite:db.sqlite";
 
-    public ConexionDB() {
+    public DB() {
         conexion = null;
     }
 
@@ -28,8 +30,8 @@ public class ConexionDB {
      */
     public Connection conectar() {
         try {
-            Class.forName("org.sqlite.JDBC");
-            conexion = DriverManager.getConnection("jdbc:sqlite:db.sqlite");
+            Class.forName(DRIVER);
+            conexion = DriverManager.getConnection(URL_CONNECTION);
             System.out.println("EXITO EN LA CONEXIÓN A DB!!");
         } catch (ClassNotFoundException | SQLException ex) {
             System.err.println("Error: " + ex.getMessage());
@@ -41,8 +43,9 @@ public class ConexionDB {
     public void desconectar() {
         try {
             conexion.close();
+            conexion = null;
         } catch (SQLException ex) {
-            Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, "Excepción al cerrar la base de datos", ex);
+            Logger.getLogger(DB.class.getName()).log(Level.SEVERE, "Excepción al cerrar la base de datos", ex);
         }
     }
 

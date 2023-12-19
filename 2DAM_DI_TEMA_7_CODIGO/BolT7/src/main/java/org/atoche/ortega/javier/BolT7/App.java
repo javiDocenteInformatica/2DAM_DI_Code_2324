@@ -1,6 +1,6 @@
 package org.atoche.ortega.javier.BolT7;
 
-import modelo.ConexionDB;
+import modelo.DB;
 import vista.PopupMenuDemo;
 
 public class App {

@@ -7,7 +7,8 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import modelo.ConexionDB;
+import javax.swing.JOptionPane;
+import modelo.DB;
 import modelo.Usuario;
 
 /**
@@ -16,45 +17,43 @@ import modelo.Usuario;
  */
 public class DaoUsuario {
 
-    private ConexionDB conexionDB;
+    private DB db;
+    private Connection conexion;
 
     public DaoUsuario() {
-        conexionDB =
-                new ConexionDB();
+        db = new DB();
     }
 
     public boolean insertarUsuario(Usuario usuario) {
 
         boolean esInsertado = false;
-        
-        Connection conn =
-                null;
 
-        if (conexionDB
-                == null) {
-            conn =
-                    conexionDB.conectar();
+        if (conexion == null) {
+            conexion = db.conectar();
         } else {
-            conn =
-                    conexionDB.getConexion();
+            conexion = db.getConexion();
         }
 
-        PreparedStatement ps =
-                null;
+        PreparedStatement ps = null;
 
-        String sql =
-                "INSERT INTO usuarios (ID, Apellido1, Apellido2, Nombre, Fecha_Nacimiento) VALUES (null,?,?,?,?)";
-        try{
-             ps = conn.prepareStatement(sql);
-        }catch(SQLException ex){
-            ex.printStackTrace();
-                   
+        String sql = "INSERT INTO usuario (ID, Apellido1, Apellido2, Nombre, Fecha_Nacimiento) VALUES (null,?,?,?,?)";
+        try {
+            ps = conexion.prepareStatement(sql);
+            ps.setString(1, usuario.getApellido1());
+            ps.setString(2, usuario.getApellido2());
+            ps.setString(3, usuario.getNombre());
+            ps.setString(4, usuario.getFechaNacimiento().toString());
+
+            esInsertado = true;
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+            
+            esInsertado = false;
         }
-       
 
-        conexionDB.desconectar();
-        
-        
+        db.desconectar();
+
         return esInsertado;
     }
 
