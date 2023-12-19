@@ -4,6 +4,7 @@
  */
 package modelo;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -19,15 +20,11 @@ public class DB {
 
     private Connection conexion;
     private static String DRIVER = "org.sqlite.JDBC";
-    private static String URL_CONNECTION = "jdbc:sqlite:"
-            +"D:\\2DAM_DI_Code_2324\\2DAM_DI_TEMA_7_CODIGO"
-            + "\\BolT7\\src\\main\\java\\modelo\\" 
-            + "db.sqlite";
+    private static String URL_CONNECTION = "jdbc:sqlite:db.sqlite";
 
     public DB() {
         conexion = null;
     }
-    
 
     /**
      *
@@ -48,7 +45,6 @@ public class DB {
     public void desconectar() {
         try {
             conexion.close();
-            conexion = null;
         } catch (SQLException ex) {
             Logger.getLogger(DB.class.getName()).log(Level.SEVERE, "Excepción al cerrar la base de datos", ex);
         }
