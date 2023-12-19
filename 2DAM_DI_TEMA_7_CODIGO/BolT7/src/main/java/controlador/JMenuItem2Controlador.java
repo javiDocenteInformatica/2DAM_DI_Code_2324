@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
 import vista.JMenuItem2;
-import vista.VentanaTablaUsuarios;
+import vista.VentanaAccionesUsuario;
 
 public class JMenuItem2Controlador implements ActionListener {
 
@@ -17,8 +17,8 @@ public class JMenuItem2Controlador implements ActionListener {
 
 		switch (item.getId()) {
 		case 21:
-			VentanaTablaUsuarios ventanaTablaUsuarios = new VentanaTablaUsuarios();
-			ventanaTablaUsuarios.setVisible(true);
+			VentanaAccionesUsuario ventanaAccionesUsuarios = new VentanaAccionesUsuario();
+			ventanaAccionesUsuarios.setVisible(true);
                         
 			break;
 		default:

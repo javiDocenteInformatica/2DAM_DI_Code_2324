@@ -29,16 +29,16 @@ public class VentanaAccionesUsuario extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanelAccionesUsuario = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        jLabelID = new javax.swing.JLabel();
+        jLabelApellido1 = new javax.swing.JLabel();
+        jLabelApellido2 = new javax.swing.JLabel();
+        jLabelNombre = new javax.swing.JLabel();
+        jLabelFechaNacimiento = new javax.swing.JLabel();
+        jTextFieldID = new javax.swing.JTextField();
+        jTextFieldApellido1 = new javax.swing.JTextField();
+        jTextFieldApellido2 = new javax.swing.JTextField();
+        jTextFieldNombre = new javax.swing.JTextField();
+        jTextFieldFechaNacimiento = new javax.swing.JTextField();
         jMenuBarUsuario = new javax.swing.JMenuBar();
         jMenuAcciones = new javax.swing.JMenu();
         jMenuItemCrear = new javax.swing.JMenuItem();
@@ -50,76 +50,86 @@ public class VentanaAccionesUsuario extends javax.swing.JFrame {
         setTitle("Acciones Usuario");
         setName("ventanaAccionesUsuario"); // NOI18N
 
-        jLabel1.setText("jLabel1");
+        jLabelID.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelID.setText("ID");
 
-        jLabel2.setText("jLabel2");
+        jLabelApellido1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelApellido1.setText("Apellido 1");
 
-        jLabel3.setText("jLabel3");
+        jLabelApellido2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelApellido2.setText("Apellido 2");
 
-        jLabel4.setText("jLabel4");
+        jLabelNombre.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelNombre.setText("Nombre");
 
-        jLabel5.setText("jLabel5");
+        jLabelFechaNacimiento.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelFechaNacimiento.setText("Fecha Nacimiento");
 
-        jTextField1.setText("jTextField1");
+        jTextFieldID.setText("jTextField1");
 
-        jTextField2.setText("jTextField2");
+        jTextFieldApellido1.setText("jTextField2");
 
-        jTextField3.setText("jTextField3");
+        jTextFieldApellido2.setText("jTextField3");
 
-        jTextField4.setText("jTextField4");
+        jTextFieldNombre.setText("jTextField4");
 
-        jTextField5.setText("jTextField5");
+        jTextFieldFechaNacimiento.setText("jTextField5");
 
         javax.swing.GroupLayout jPanelAccionesUsuarioLayout = new javax.swing.GroupLayout(jPanelAccionesUsuario);
         jPanelAccionesUsuario.setLayout(jPanelAccionesUsuarioLayout);
         jPanelAccionesUsuarioLayout.setHorizontalGroup(
             jPanelAccionesUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelAccionesUsuarioLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(jPanelAccionesUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(93, 93, 93)
                 .addGroup(jPanelAccionesUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(430, Short.MAX_VALUE))
+                    .addComponent(jLabelApellido1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelApellido2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanelAccionesUsuarioLayout.createSequentialGroup()
+                        .addComponent(jLabelID, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jLabelFechaNacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelAccionesUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextFieldNombre)
+                    .addComponent(jTextFieldApellido1)
+                    .addComponent(jTextFieldApellido2)
+                    .addGroup(jPanelAccionesUsuarioLayout.createSequentialGroup()
+                        .addComponent(jTextFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jTextFieldFechaNacimiento))
+                .addGap(57, 57, 57))
         );
         jPanelAccionesUsuarioLayout.setVerticalGroup(
             jPanelAccionesUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelAccionesUsuarioLayout.createSequentialGroup()
                 .addGap(60, 60, 60)
                 .addGroup(jPanelAccionesUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelID)
+                    .addComponent(jTextFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelAccionesUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelApellido1)
+                    .addComponent(jTextFieldApellido1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelAccionesUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelApellido2)
+                    .addComponent(jTextFieldApellido2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelAccionesUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelNombre)
+                    .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelAccionesUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelFechaNacimiento)
+                    .addComponent(jTextFieldFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(94, Short.MAX_VALUE))
         );
 
         jMenuAcciones.setText("Acciones");
 
         jMenuItemCrear.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_1, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        jMenuItemCrear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/img/crear.png"))); // NOI18N
         jMenuItemCrear.setText("Crear");
         jMenuItemCrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,6 +139,7 @@ public class VentanaAccionesUsuario extends javax.swing.JFrame {
         jMenuAcciones.add(jMenuItemCrear);
 
         jMenuItemLeer.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_2, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        jMenuItemLeer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/img/view.png"))); // NOI18N
         jMenuItemLeer.setText("Leer");
         jMenuItemLeer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,6 +149,7 @@ public class VentanaAccionesUsuario extends javax.swing.JFrame {
         jMenuAcciones.add(jMenuItemLeer);
 
         jMenuItemActualizar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_3, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        jMenuItemActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/img/update.png"))); // NOI18N
         jMenuItemActualizar.setText("Actualizar");
         jMenuItemActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,6 +159,7 @@ public class VentanaAccionesUsuario extends javax.swing.JFrame {
         jMenuAcciones.add(jMenuItemActualizar);
 
         jMenuItemBorrar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_4, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        jMenuItemBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/img/delete.png"))); // NOI18N
         jMenuItemBorrar.setText("Borrar");
         jMenuItemBorrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -225,11 +238,11 @@ public class VentanaAccionesUsuario extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabelApellido1;
+    private javax.swing.JLabel jLabelApellido2;
+    private javax.swing.JLabel jLabelFechaNacimiento;
+    private javax.swing.JLabel jLabelID;
+    private javax.swing.JLabel jLabelNombre;
     private javax.swing.JMenu jMenuAcciones;
     private javax.swing.JMenuBar jMenuBarUsuario;
     private javax.swing.JMenuItem jMenuItemActualizar;
@@ -237,10 +250,10 @@ public class VentanaAccionesUsuario extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemCrear;
     private javax.swing.JMenuItem jMenuItemLeer;
     private javax.swing.JPanel jPanelAccionesUsuario;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextFieldApellido1;
+    private javax.swing.JTextField jTextFieldApellido2;
+    private javax.swing.JTextField jTextFieldFechaNacimiento;
+    private javax.swing.JTextField jTextFieldID;
+    private javax.swing.JTextField jTextFieldNombre;
     // End of variables declaration//GEN-END:variables
 }
