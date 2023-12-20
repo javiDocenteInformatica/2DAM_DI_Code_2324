@@ -16,7 +16,7 @@ public class App {
                 System.out.println("Hello World on " + Thread.currentThread());
 
                 PopupMenuDemo popupMenu = new PopupMenuDemo();
-                popupMenu.createAndShowGUI();
+//                popupMenu.createAndShowGUI();
             }
 
         });

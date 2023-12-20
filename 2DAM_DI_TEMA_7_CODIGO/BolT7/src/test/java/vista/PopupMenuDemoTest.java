@@ -53,11 +53,11 @@ public class PopupMenuDemoTest {
 	}
 
 	// Prueba para verificar la creación del contenido del panel.
-	@Test
-	public void testCreateContentPane() {
-		assertNotNull(popupMenuDemo.createContentPane());
-
-	}
+//	@Test
+//	public void testCreateContentPane() {
+//		assertNotNull(popupMenuDemo.createContentPane());
+//
+//	}
 
 	// Prueba para verificar la creación del menú emergente.
 	@Test

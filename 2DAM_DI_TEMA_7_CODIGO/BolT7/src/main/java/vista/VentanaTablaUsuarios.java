@@ -5,9 +5,18 @@
 package vista;
 
 import controlador.VentanaTablaUsuariosControlador;
+import dao.DaoUsuario;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
+import javax.swing.table.DefaultTableModel;
+import modelo.Usuario;
 import utiles.Utiles;
 
 /**
@@ -41,42 +50,11 @@ public class VentanaTablaUsuarios extends javax.swing.JDialog {
         this.setContentPane(panelTablaUsuarios);
 
         this.setLocationRelativeTo(null);
-        
+
         // Gestión de Eventos de la VentanaTablaUsuario
         this.addWindowListener(new VentanaTablaUsuariosControlador(this));
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -105,4 +83,99 @@ public class VentanaTablaUsuarios extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
+}
+
+class PanelTablaUsuarios extends javax.swing.JPanel {
+
+    private static final long serialVersionUID = 1L;
+
+    private JTable tablaUsuarios;
+    private DefaultTableModel cuadricula;
+    private int numColumns;
+    private String[] nombreColumnas;
+    private ArrayList<Usuario> listaUsuarios;
+
+    private JScrollPane scrollPane;
+
+    /**
+     * Creates new form PanelTablaUsuarios
+     */
+    public PanelTablaUsuarios() {
+
+        this.setLayout(new BorderLayout());
+
+        this.cuadricula = new DefaultTableModel();
+        this.tablaUsuarios = new JTable(cuadricula);
+
+        // Personalización de JTable //
+        // Se le da un color por defecto, pero se cambiará
+        // Esto se hace por si falla la decodificación del color en HEX
+        Color colorLineaBordeTabla = new Color(0, 0, 0);
+        Color colorBackgroundTabla = new Color(255, 255, 255);
+
+        // Se intenta decodificar el color en HEX
+        try {
+            colorLineaBordeTabla = Color.decode("#" + Utiles.COLOR_MARRON2);
+            colorBackgroundTabla = Color.decode("#" + Utiles.COLOR_ROJO2);
+        } catch (NumberFormatException ex) {
+            System.out.println("Error al intentar decodificar un color en HEX");
+            ex.printStackTrace();
+
+        }
+
+        this.tablaUsuarios.setBorder(new LineBorder(colorLineaBordeTabla));
+        this.tablaUsuarios.setBackground(colorBackgroundTabla);
+
+        // Añadir COMPONENTES al PANEL        
+        scrollPane = new JScrollPane(this.tablaUsuarios);
+        this.tablaUsuarios.setFillsViewportHeight(true);
+//        this.tablaUsuarios.setTableHeader(new JTableHeader());
+        this.add(scrollPane, BorderLayout.CENTER);
+        this.add(this.tablaUsuarios.getTableHeader(), BorderLayout.PAGE_START);
+
+        //////////////////////////////////////////
+        // Añadimos los datos a la tabla
+        actualizaTabla(tablaUsuarios);
+
+    }
+
+    public void actualizaTabla(JTable tablaUsuarios) {
+
+        // Clase que nos gestiona los métodos para comunicarnos con la BD
+        DaoUsuario daoUsuario = new DaoUsuario();
+
+        nombreColumnas = new String[]{"ID",
+            "Apellido1", "Apellido2",
+            "Nombre", "Fecha de Nacimiento"};
+
+        cuadricula.addColumn(nombreColumnas[0]);
+        cuadricula.addColumn(nombreColumnas[1]);
+        cuadricula.addColumn(nombreColumnas[2]);
+        cuadricula.addColumn(nombreColumnas[3]);
+        cuadricula.addColumn(nombreColumnas[4]);
+
+        numColumns = nombreColumnas.length;
+
+        // Limpiamos la tabla antes de añadir los datos de la BD
+        while (cuadricula.getRowCount() > 0) {
+            cuadricula.removeRow(0);
+        }
+
+        listaUsuarios = daoUsuario.leerUsuarios();
+        for (Usuario u : listaUsuarios) {
+
+            Object datosFila[] = new Object[numColumns];
+
+            datosFila[0] = u.getId();
+            datosFila[1] = u.getApellido1();
+            datosFila[2] = u.getApellido2();
+            datosFila[3] = u.getNombre();
+            datosFila[4] = u.getFechaNacimiento();
+
+            cuadricula.addRow(datosFila);
+        }
+
+        tablaUsuarios.setModel(cuadricula);
+    }
+
 }
