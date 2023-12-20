@@ -57,7 +57,6 @@ public class Utiles extends JComponent {
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_GREEN = "\u001B[32m";
     public static final String ANSI_YELLOW = "\u001B[33m";
-    
 
     // TEXTOS JMenuItem
     public static final String TEXT_MENU2_ITEM1 = "Ver Tabla";
@@ -120,19 +119,18 @@ public class Utiles extends JComponent {
         try {
             // Ruta al archivo de la fuente descargada
 
-            String path = nombreFuente;
+            String path = "/assets/" + nombreFuente;
 
-            URL fontUrl = Utiles.class.getClassLoader().getResource(path);
-
+//            URL fontUrl = Utiles.class.getClassLoader().getResource(path);
+            URL fontUrl = Utiles.class.getResource(path);
 
             // Crear un objeto de fuente personalizada desde la URL
             // Derivar la fuente con tamaño especificado
-//          fuente = Font.createFont(Font.TRUETYPE_FONT, fontUrl.openStream()).deriveFont(Font.PLAIN, tamanyo);
             fuente = Font.createFont(Font.TRUETYPE_FONT, fontUrl.openStream()).deriveFont(Font.PLAIN, tamanyo);
         } catch (Exception e) {
             // Imprimir detalles del error en caso de FontFormatException o IOException
 //            e.printStackTrace();
-            System.out.println("utiles.Utiles.cargaFuentes(): "+e.getMessage());
+            System.out.println("utiles.Utiles.cargaFuentes(): " + e.getMessage());
             // En caso de error, usar una fuente predeterminada
             return new Font("Arial", Font.PLAIN, tamanyo);
         }

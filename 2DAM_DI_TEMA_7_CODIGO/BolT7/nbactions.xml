@@ -16,9 +16,6 @@
             <goals>
                 <goal>install</goal>
             </goals>
-            <properties>
-                <skipTests>true</skipTests>
-            </properties>
         </action>
         <action>
             <actionName>rebuild</actionName>
@@ -29,9 +26,6 @@
                 <goal>clean</goal>
                 <goal>install</goal>
             </goals>
-            <properties>
-                <skipTests>true</skipTests>
-            </properties>
         </action>
         <action>
             <actionName>run</actionName>
@@ -48,7 +42,7 @@
                 <exec.appArgs></exec.appArgs>
                 <exec.mainClass>${packageClassName}</exec.mainClass>
                 <exec.executable>java</exec.executable>
-                <skipTests>true</skipTests>
+                
             </properties>
         </action>
     </actions>

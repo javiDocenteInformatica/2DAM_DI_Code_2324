@@ -23,59 +23,36 @@
     <dependencies>
         <!-- Comentario: Especificación de dependencias del proyecto -->
 
-        <!--
-                https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
-                Comentario: Enlace a la página de Maven Repository para la dependencia de JUnit
-                Jupiter API.
-        -->
-
-        <dependency>
-            <!-- Comentario: Inicio de la definición de una dependencia -->
-
-            <groupId>org.junit.jupiter</groupId>
-            <!-- Comentario: Grupo al que pertenece la dependencia (organización
-            o proyecto) -->
-
-            <artifactId>junit-jupiter-api</artifactId>
-            <!-- Comentario: Identificador único del artefacto (en este caso, la
-            API de JUnit Jupiter) -->
-
-            <version>5.10.1</version>
-            <!-- Comentario: Versión específica de la dependencia -->
-
-            <scope>test</scope>
-            <!-- Comentario: Ámbito en el que se utiliza la dependencia (en este
-            caso, solo para pruebas) -->
-
-        </dependency>
-        <!-- Comentario: Fin de la definición de la dependencia -->
-
-        <!-- https://mvnrepository.com/artifact/org.assertj/assertj-swing-junit -->
-        <!-- <dependency>
-                <groupId>org.assertj</groupId>
-                <artifactId>assertj-swing-junit</artifactId>
-                <version>3.17.1</version>
-                <scope>test</scope>
-        </dependency> -->
-
-        <!--
-      https://mvnrepository.com/artifact/com.google.firebase/firebase-admin 
-        <dependency>
-            <groupId>com.google.firebase</groupId>
-            <artifactId>firebase-admin</artifactId>
-            <version>9.2.0</version>
-        </dependency>
-        -->  
-        
+        <!--BBDD-->
         <!-- https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc -->
         <dependency>
             <groupId>org.xerial</groupId>
             <artifactId>sqlite-jdbc</artifactId>
             <version>3.44.1.0</version>
         </dependency>
+        
+        <!--MOCKITO y JUNIT 5: JUPITER-->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.10.1</version>
+            <scope>test</scope>
+        </dependency>
 
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>5.8.0</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <version>5.8.0</version>
+            <scope>test</scope>
+        </dependency>
 
-
+        
     </dependencies>
     <!-- Comentario: Fin de la sección de dependencias en el archivo POM.xml -->
 
@@ -135,6 +112,10 @@
             </plugins>
         </pluginManagement>
                 
+        <!--Aquí se pretende indicarle al entorno de desarrollo cual es la ruta 
+        hacia los recursos, ya que por defecto la ruta sería "resources" en la 
+        raiz del proyecto, y esa ruta no existe en mi proyecto, así que le añado 
+        un path personalizado tanto para 'main' como 'test'-->
         <resources>
             <resource>
                 <directory>src/main/java</directory>
