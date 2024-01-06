@@ -14,60 +14,81 @@ import vista.VentanaAccionesUsuario;
 import vista.VentanaTablaUsuarios;
 
 /**
- *
  * @author profesor
  */
 public class VentanaAccionesUsuarioControlador {
 
     private VentanaAccionesUsuario ventanaAccionesUsuario;
+    private VentanaTablaUsuarios ventanaTablaUsuarios;
     private DaoUsuario daoUsuario;
 
     public VentanaAccionesUsuarioControlador(VentanaAccionesUsuario ventanaAccionesUsuario) {
-        this.ventanaAccionesUsuario = ventanaAccionesUsuario;
-        daoUsuario = new DaoUsuario();
+	this.ventanaAccionesUsuario = ventanaAccionesUsuario;
+	daoUsuario = new DaoUsuario();
     }
 
     public void abrirVentanaTablaUsuarios() {
-        VentanaTablaUsuarios ventanaTablaUsuarios = new VentanaTablaUsuarios();
-        ventanaTablaUsuarios.setVisible(true);
+	ventanaTablaUsuarios = new VentanaTablaUsuarios();
+	ventanaTablaUsuarios.setVisible(true);
     }
 
     public boolean insertarUsuario() {
 
-        boolean esInsertado = false;
+	boolean esInsertado = false;
 
-//        Integer id;
-        String apellido1, apellido2, nombre;
-        LocalDate fechaNacimiento = null;
+	// Integer id;
+	String apellido1, apellido2, nombre;
+	LocalDate fechaNacimiento = null;
 
-//        id = Integer.parseInt(ventanaAccionesUsuario.getjLabelID().getText());
-        apellido1 = ventanaAccionesUsuario.getjTextFieldApellido1().getText();
-        apellido2 = ventanaAccionesUsuario.getjTextFieldApellido2().getText();
-        nombre = ventanaAccionesUsuario.getjTextFieldNombre().getText();
-        try {
-            fechaNacimiento = LocalDate.parse(
-                    ventanaAccionesUsuario.getjTextFieldFechaNacimiento().getText(),
-                    DateTimeFormatter.ofPattern("yyyy-MM-dd")
-            );
+	// id = Integer.parseInt(ventanaAccionesUsuario.getjLabelID().getText());
+	apellido1 = ventanaAccionesUsuario.getjTextFieldApellido1().getText();
+	apellido2 = ventanaAccionesUsuario.getjTextFieldApellido2().getText();
+	nombre = ventanaAccionesUsuario.getjTextFieldNombre().getText();
+	try {
+	    fechaNacimiento = LocalDate.parse(ventanaAccionesUsuario.getjTextFieldFechaNacimiento().getText(),
+		    DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 
-            Usuario usuario = new Usuario(apellido1, apellido2, nombre, fechaNacimiento);
+	    Usuario usuario = new Usuario(apellido1, apellido2, nombre, fechaNacimiento);
 
-            esInsertado = daoUsuario.insertarUsuario(usuario);
+	    esInsertado = daoUsuario.insertarUsuario(usuario);
 
-        } catch (DateTimeParseException ex) {
-            System.err.println(ex.getMessage());
-            JOptionPane.showMessageDialog(
-                    ventanaAccionesUsuario,
-                    "La fecha no está introducida en el formato correcto"
-                    + "\n"
-                    + "Formato esperado: 2023-12-19"
-                    + "\n"
-                    + "Fecha introducida: " + fechaNacimiento.toString(),
-                    "ERROR AL INSERTAR",
-                    JOptionPane.ERROR_MESSAGE
-            );
-
-        } 
-        return esInsertado;
+	} catch (DateTimeParseException ex) {
+	    System.err.println(ex.getMessage());
+	    JOptionPane.showMessageDialog(ventanaAccionesUsuario,
+		    "La fecha no está introducida en el formato correcto" + "\n" + "Formato esperado: 2023-12-19" + "\n"
+			    + "Fecha introducida: " + ventanaAccionesUsuario.getjTextFieldFechaNacimiento().getText(),
+		    "ERROR AL INSERTAR", JOptionPane.ERROR_MESSAGE);
+	}
+	return esInsertado;
     }
+
+    
+    
+    
+    // GETTERS Y SETTERS
+
+    public VentanaAccionesUsuario getVentanaAccionesUsuario() {
+	return ventanaAccionesUsuario;
+    }
+
+    public void setVentanaAccionesUsuario(VentanaAccionesUsuario ventanaAccionesUsuario) {
+	this.ventanaAccionesUsuario = ventanaAccionesUsuario;
+    }
+
+    public VentanaTablaUsuarios getVentanaTablaUsuarios() {
+	return ventanaTablaUsuarios;
+    }
+
+    public void setVentanaTablaUsuarios(VentanaTablaUsuarios ventanaTablaUsuarios) {
+	this.ventanaTablaUsuarios = ventanaTablaUsuarios;
+    }
+
+    public DaoUsuario getDaoUsuario() {
+	return daoUsuario;
+    }
+
+    public void setDaoUsuario(DaoUsuario daoUsuario) {
+	this.daoUsuario = daoUsuario;
+    }
+
 }

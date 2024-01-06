@@ -54,18 +54,7 @@ class UtilesTest {
 		
 	}
 
-	/**
-	 * Se ejecuta una vez después de que se completan todas las pruebas.
-	 *
-	 * @throws java.lang.Exception
-	 */
-	@AfterAll
-	public static void tearDownAfterClass() throws Exception {
-		// Puedes realizar limpiezas globales aquí después de que se completan todas las
-		// pruebas.
-		
-//		boton = null;
-	}
+	
 
 	/**
 	 * Se ejecuta antes de cada prueba individual.
@@ -81,20 +70,7 @@ class UtilesTest {
 		menuItem = new JMenuItem();
 	}
 
-	/**
-	 * Se ejecuta después de cada prueba individual.
-	 *
-	 * @throws java.lang.Exception
-	 */
-	@AfterEach
-	public void tearDown() throws Exception {
-		// Puedes realizar limpiezas específicas de la prueba aquí después de cada
-		// prueba.
-		
-		boton = null;
-		areaTexto = null;
-		menuItem = null;
-	}
+	
 
 	/**
 	 * TESTS
@@ -235,6 +211,35 @@ class UtilesTest {
 
 		// Verificación
 		assertEquals("Este es un tooltip de prueba", boton.getToolTipText());
+	}
+        
+        
+        /**
+	 * Se ejecuta después de cada prueba individual.
+	 *
+	 * @throws java.lang.Exception
+	 */
+	@AfterEach
+	public void tearDown() throws Exception {
+		// Puedes realizar limpiezas específicas de la prueba aquí después de cada
+		// prueba.
+		
+		boton = null;
+		areaTexto = null;
+		menuItem = null;
+	}
+        
+        /**
+	 * Se ejecuta una vez después de que se completan todas las pruebas.
+	 *
+	 * @throws java.lang.Exception
+	 */
+	@AfterAll
+	public static void tearDownAfterClass() throws Exception {
+		// Puedes realizar limpiezas globales aquí después de que se completan todas las
+		// pruebas.
+		
+//		boton = null;
 	}
 
 }

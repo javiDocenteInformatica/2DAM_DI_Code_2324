@@ -80,9 +80,22 @@ public class VentanaTablaUsuarios extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public JPanel getPanelTablaUsuarios() {
+	return panelTablaUsuarios;
+    }
+
+    public void setPanelTablaUsuarios(JPanel panelTablaUsuarios) {
+	this.panelTablaUsuarios = panelTablaUsuarios;
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
+
+	//GETTERS Y SETTERS
+    
+    
+
 }
 
 class PanelTablaUsuarios extends javax.swing.JPanel {
@@ -177,5 +190,59 @@ class PanelTablaUsuarios extends javax.swing.JPanel {
 
         tablaUsuarios.setModel(cuadricula);
     }
+    
+    
+    //GETTERS Y SETTERS
 
+    public JTable getTablaUsuarios() {
+	return tablaUsuarios;
+    }
+
+    public void setTablaUsuarios(JTable tablaUsuarios) {
+	this.tablaUsuarios = tablaUsuarios;
+    }
+
+    public DefaultTableModel getCuadricula() {
+	return cuadricula;
+    }
+
+    public void setCuadricula(DefaultTableModel cuadricula) {
+	this.cuadricula = cuadricula;
+    }
+
+    public int getNumColumns() {
+	return numColumns;
+    }
+
+    public void setNumColumns(int numColumns) {
+	this.numColumns = numColumns;
+    }
+
+    public String[] getNombreColumnas() {
+	return nombreColumnas;
+    }
+
+    public void setNombreColumnas(String[] nombreColumnas) {
+	this.nombreColumnas = nombreColumnas;
+    }
+
+    public ArrayList<Usuario> getListaUsuarios() {
+	return listaUsuarios;
+    }
+
+    public void setListaUsuarios(ArrayList<Usuario> listaUsuarios) {
+	this.listaUsuarios = listaUsuarios;
+    }
+
+    public JScrollPane getScrollPane() {
+	return scrollPane;
+    }
+
+    public void setScrollPane(JScrollPane scrollPane) {
+	this.scrollPane = scrollPane;
+    }
+
+    
+    
+    
 }

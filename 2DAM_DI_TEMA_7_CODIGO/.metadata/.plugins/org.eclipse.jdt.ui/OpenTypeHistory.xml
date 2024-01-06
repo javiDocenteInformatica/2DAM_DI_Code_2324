@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
     <typeInfo handle="=BolT7/C:\/Program Files\/Java\/jdk-20\/lib\/jrt-fs.jar`java.desktop=/javadoc_location=/https:\/\/docs.oracle.com\/en\/java\/javase\/20\/docs\/api\/=/=/maven.pomderived=/true=/&lt;javax.swing(JList.class[JList" modifiers="33" timestamp="1701122592518"/>
-    <typeInfo handle="=BolT7/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;org.atoche.ortega.javier.BolT7{App.java[App" modifiers="1" timestamp="1701245082429"/>
-    <typeInfo handle="=BolT7/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;controlador{PopupMenuEventsManager.java[PopupMenuEventsManager" modifiers="1" timestamp="1702659369974"/>
-    <typeInfo handle="=BolT7/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;controlador{PopupMenuContextEventsManager.java[PopupMenuContextEventsManager" modifiers="1" timestamp="1701122293920"/>
-    <typeInfo handle="=BolT7/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;controlador{PopupMenuItemEventsManager.java[PopupMenuItemEventsManager" modifiers="1" timestamp="1702661514833"/>
-    <typeInfo handle="=BolT7/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;utiles{Utiles.java[Utiles" modifiers="1" timestamp="1702664333046"/>
-    <typeInfo handle="=BolT7/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;vista{PopupMenuDemo.java[PopupMenuDemo" modifiers="1" timestamp="1702665312169"/>
+    <typeInfo handle="=BolT7/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;org.atoche.ortega.javier.BolT7{App.java[App" modifiers="1" timestamp="1703054691489"/>
+    <typeInfo handle="=BolT7/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;utiles{Utiles.java[Utiles" modifiers="1" timestamp="1703102490196"/>
+    <typeInfo handle="=BolT7/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;vista{PopupMenuDemo.java[PopupMenuDemo" modifiers="1" timestamp="1703059715539"/>
 </typeInfoHistroy>
