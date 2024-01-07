@@ -1,13 +1,22 @@
 package ies.atocheortegajavier.bolt8;
 
-/**
- * Hello world!
- *
- */
+import java.awt.EventQueue;
+
+import ies.atocheortegajavier.vista.inicio.VentanaInicio;
+
 public class App 
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        EventQueue.invokeLater(new Runnable() {
+
+			@Override
+			public void run() {
+				VentanaInicio frame = new VentanaInicio();
+				frame.setVisible(true);
+				
+			}
+        	
+        });
     }
 }
