@@ -66,17 +66,21 @@
 
         </plugins>
 		
-		<resources>
-			<resource>
-				<directory>src/main/java/ies/atocheortegajavier/resources</directory>
-			</resource>
-		</resources>
+<!--		<resources>-->
+<!--			<resource>-->
+<!--				<directory>src/main/java/ies/atocheortegajavier/resources</directory>-->
+<!--			</resource>-->
+<!--			<resource>-->
+<!--				<directory>src/main/java/ies/atocheortegajavier/modelo</directory>-->
+<!--			</resource>-->
+			
+<!--		</resources>-->
 
-		<testResources>
-			<testResource>
-				<directory>src/test/java/ies/atocheortegajavier/resources</directory>
-			</testResource>
-		</testResources>
+<!--		<testResources>-->
+<!--			<testResource>-->
+<!--				<directory>src/test/java/ies/atocheortegajavier/resources</directory>-->
+<!--			</testResource>-->
+<!--		</testResources>-->
 	</build>
 
 </project>

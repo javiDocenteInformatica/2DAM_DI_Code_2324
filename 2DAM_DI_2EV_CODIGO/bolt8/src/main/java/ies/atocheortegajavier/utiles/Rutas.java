@@ -7,7 +7,8 @@ import java.nio.file.Paths;
 
 public class Rutas {
 
-	
+	public static final String BASEDIR_RESOURCES = "src\\main\\java\\ies\\atocheortegajavier\\resources\\";
+	public static final String BASEDIR_DB = "src\\main\\java\\ies\\atocheortegajavier\\modelo\\";
 
 	public static String obtenerRutaAbsoluta(URL url) {
 		String rutaAbsoluta = "";
